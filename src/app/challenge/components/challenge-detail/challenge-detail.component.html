@@ -1,0 +1,21 @@
+<app-back-button></app-back-button>
+
+<div class="flex-column justify-content-start align-items-center">
+    <h1>Challenge details</h1>
+
+    <div class="flex-container">
+        <div class="card" *ngIf="challenge$ | async as challenge else loading">
+            <h2>{{challenge.title}}</h2>
+            <p>{{challenge.description}}</p>
+            <p>Récompense : {{challenge.award}}</p>
+            <p>Date d'expiration : {{challenge.expiration}}</p>
+            <br>
+        </div>
+        <br>
+
+        <ng-template #loading>
+            <div class="loader center"></div>
+            <p>Loading...</p>
+        </ng-template>
+    </div>
+</div>

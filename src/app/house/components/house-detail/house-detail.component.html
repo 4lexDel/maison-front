@@ -1,0 +1,20 @@
+<app-back-button></app-back-button>
+
+<div class="flex-column justify-content-start align-items-center">
+    <h1>House details</h1>
+
+    <div class="flex-container">
+        <div class="card" *ngIf="house$ | async as house else loading">
+            <h2>{{house.title}}</h2>
+            <p>{{house.description}}</p>
+            <p>Score : {{house.score}}</p>
+            <br>
+        </div>
+        <br>
+
+        <ng-template #loading>
+            <div class="loader center"></div>
+            <p>Loading...</p>
+        </ng-template>
+    </div>
+</div>

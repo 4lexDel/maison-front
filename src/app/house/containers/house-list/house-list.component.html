@@ -1,0 +1,18 @@
+<div class="flex-column justify-content-start align-items-center">
+    <h1>Houses'list</h1>
+    <div class="flex-row justify-content-center">
+        <div class="card" *ngFor="let house of houseList$ | async">
+            <h2>{{house.title}}</h2>
+            <p>{{house.description}}</p>
+            <p>Score : {{house.score}}</p>
+            <button (click)="getHouseByID(house.idHouse)">View</button>
+            <br>
+        </div>
+        <div *ngIf="houseList$ | async else loading"></div>
+
+        <ng-template #loading>
+            <div class="loader"></div>
+            <p>Loading...</p>
+        </ng-template>
+    </div>
+</div>
