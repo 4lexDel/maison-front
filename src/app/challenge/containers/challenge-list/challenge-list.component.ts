@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChallengeService } from '../../services/challenge.service';
 import { Router } from '@angular/router';
 import { Challenge } from 'src/app/core/models/challenge.model';
@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./challenge-list.component.css']
 })
 export class ChallengeListComponent implements OnInit {
+  @Input() isAdmin: boolean = false;
+
   challengeList$!:Observable<Challenge[]>;
 
   constructor(private challengeService: ChallengeService, private router: Router) { }

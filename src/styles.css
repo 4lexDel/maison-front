@@ -13,10 +13,105 @@ label {
     color: rgb(199, 199, 199);
 }
 
-.btn {
-    padding: 5px 20px;
-    margin: 5px;
+button {
+    margin: 1px;
+    background-color: transparent;
+    border: solid 2px;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 10px;
 }
+
+button:hover {
+    opacity: 0.9;
+}
+
+.view-button {
+    border-color: black;
+    color: black;
+}
+
+.view-button:active {
+    background-color: rgb(188, 186, 186);
+    color: black;
+}
+
+.update-button {
+    border-color: rgb(40, 40, 234);
+    color: rgb(40, 40, 234);
+}
+
+.update-button:active {
+    background-color: rgb(40, 40, 234);
+    color: black;
+}
+
+.delete-button {
+    border-color: red;
+    color: red;
+}
+
+.delete-button:active {
+    background-color: red;
+    color: black;
+}
+
+
+/***/
+
+.card {
+    /* width: 100%; */
+    display: block;
+    border: 2px black solid;
+    border-radius: 5px;
+    box-shadow: 1px black;
+    background-color: rgb(171, 171, 171);
+    padding: 5px;
+    margin: 5px;
+    max-width: 500px;
+}
+
+.card>* {
+    /* margin: 5px; */
+    padding: 10px 20px;
+    color: black;
+}
+
+.loader {
+    z-index: 1;
+    margin: 10px;
+    border: 2px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid blue;
+    border-right: 4px solid rgb(207, 207, 207);
+    border-bottom: 4px solid red;
+    border-left: 4px solid rgb(207, 207, 207);
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/***/
 
 .flex-container {
     display: flex;
@@ -67,56 +162,4 @@ label {
 
 .justify-content-between {
     justify-content: space-between;
-}
-
-
-/***/
-
-.card {
-    /* width: 100%; */
-    display: block;
-    border: 2px black solid;
-    border-radius: 5px;
-    box-shadow: 1px black;
-    background-color: rgb(147 127 45);
-    padding: 5px;
-    margin: 5px;
-    max-width: 500px;
-}
-
-.card>* {
-    padding: 0 20px;
-}
-
-.loader {
-    z-index: 1;
-    margin: 10px;
-    border: 2px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 4px solid blue;
-    border-right: 4px solid rgb(207, 207, 207);
-    border-bottom: 4px solid red;
-    border-left: 4px solid rgb(207, 207, 207);
-    width: 30px;
-    height: 30px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }

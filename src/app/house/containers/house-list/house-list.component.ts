@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { House } from 'src/app/core/models/house.model';
 import { HouseService } from '../../services/house.service';
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./house-list.component.css']
 })
 export class HouseListComponent implements OnInit {
+  @Input() isAdmin: boolean = false;
+
   houseList$!:Observable<House[]>;
 
   constructor(private houseService: HouseService, private router: Router) { }

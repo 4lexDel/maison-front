@@ -5,8 +5,15 @@
             <h2>{{house.title}}</h2>
             <p>{{house.description}}</p>
             <p>Score : {{house.score}}</p>
-            <button (click)="getHouseByID(house.idHouse)">View</button>
-            <br>
+            <div class="flex-row justify-content-between">
+                <button class="view-button" (click)="getHouseByID(house.idHouse)">View</button>
+                <div *ngIf="isAdmin">
+                    <div class="flex-row">
+                        <button class="update-button">Update</button>
+                        <button class="delete-button">Delete</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div *ngIf="houseList$ | async else loading"></div>
 
