@@ -23,4 +23,8 @@ export class ChallengeListComponent implements OnInit {
   getChallengeByID(id:number){
     this.router.navigateByUrl(`/challenges/${id}`);
   }
+
+  updateChallenge(id:number){
+    this.router.navigateByUrl(`/challenges/${id}/update`);
+  }
 }

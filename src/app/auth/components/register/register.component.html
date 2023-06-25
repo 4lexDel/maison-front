@@ -1,7 +1,9 @@
-<div class="form-card">
-    <h2>S'enregistrer</h2>
+<div class="form-card flex-column justify-content-around">
+    <div class="flex-row justify-content-center">
+        <h1>S'enregistrer</h1>
+    </div>
 
-    <form [formGroup]="registerForm">
+    <form [formGroup]="registerForm" class="flex-column justify-content-around">
         <div class="form-group">
             <label for="username">Pseudo</label>
             <input type="text" id="username" formControlName="username">
@@ -16,9 +18,9 @@
         </div>
         <div class="action-buttons">
             <button type="button" (click)="onSubmitForm()">Enregistrer</button>
+            <button (click)="login()" class="login-button">Se connecter</button>
         </div>
     </form>
-    <button (click)="login()">Se connecter</button>
     <div class="result">
         {{response | titlecase}}
         <div *ngIf="process" class="loader"></div>

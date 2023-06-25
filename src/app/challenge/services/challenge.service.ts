@@ -22,4 +22,8 @@ export class ChallengeService {
   getChallengeByID(id:number): Observable<Challenge>{
     return this.http.get<Challenge>(`${this.domainName}/challenges/${id}`);
   }
+
+  updateChallenge(updatedChallenge: Challenge, challengeId:number): Observable<Challenge>{
+    return this.http.put<Challenge>(`${this.domainName}/challenges/${challengeId}`, updatedChallenge)
+  }
 }

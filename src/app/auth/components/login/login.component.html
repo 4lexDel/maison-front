@@ -1,7 +1,10 @@
-<div class="form-card">
-    <h2>Connexion</h2>
+<div class="form-card flex-column justify-content-around">
 
-    <form [formGroup]="loginForm">
+    <div class="flex-row justify-content-center">
+        <h1>Connexion</h1>
+    </div>
+
+    <form [formGroup]="loginForm" class="flex-column justify-content-around">
         <div class="form-group">
             <label for="username">Pseudo</label>
             <input type="text" id="username" formControlName="username">
@@ -10,11 +13,12 @@
             <label for="password">Mot de passe</label>
             <input type="password" id="password" formControlName="password">
         </div>
+
         <div class="action-buttons">
-            <button type="button" (click)="onSubmitForm()">Connexion</button>
+            <button type="button" (click)="onSubmitForm()" class="login-button">Connexion</button>
+            <button (click)="register()">S'enregistrer</button>
         </div>
     </form>
-    <button (click)="register()">S'enregistrer</button>
     <br>
     <div class="result">
         {{response | titlecase}}

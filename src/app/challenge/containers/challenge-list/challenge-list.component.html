@@ -10,7 +10,7 @@
                 <button class="view-button" (click)="getChallengeByID(challenge.idChallenge)">View</button>
                 <div *ngIf="isAdmin">
                     <div class="flex-row">
-                        <button class="update-button">Update</button>
+                        <button class="update-button" (click)="updateChallenge(challenge.idChallenge)">Update</button>
                         <button class="delete-button">Delete</button>
                     </div>
                 </div>

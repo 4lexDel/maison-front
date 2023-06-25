@@ -26,6 +26,16 @@ button:hover {
     opacity: 0.9;
 }
 
+.white-button {
+    border-color: rgb(188, 186, 186);
+    color: rgb(188, 186, 186);
+}
+
+.white-button:active {
+    background-color: rgb(188, 186, 186);
+    color: black;
+}
+
 .view-button {
     border-color: black;
     color: black;
@@ -36,14 +46,16 @@ button:hover {
     color: black;
 }
 
-.update-button {
-    border-color: rgb(40, 40, 234);
-    color: rgb(40, 40, 234);
+.update-button,
+.login-button {
+    border-color: rgb(40, 40, 234) !important;
+    color: rgb(40, 40, 234) !important;
 }
 
-.update-button:active {
-    background-color: rgb(40, 40, 234);
-    color: black;
+.update-button:active,
+.login-button:active {
+    background-color: rgb(40, 40, 234) !important;
+    color: black !important;
 }
 
 .delete-button {
@@ -62,10 +74,10 @@ button:hover {
 .card {
     /* width: 100%; */
     display: block;
-    border: 2px black solid;
-    border-radius: 5px;
+    border: 4px #949494 solid;
+    border-radius: 15px;
     box-shadow: 1px black;
-    background-color: rgb(171, 171, 171);
+    background-color: rgb(234 234 234);
     padding: 5px;
     margin: 5px;
     max-width: 500px;
@@ -142,6 +154,10 @@ button:hover {
 
 .align-items-end {
     align-items: end;
+}
+
+.align-items-stretch {
+    align-items: stretch;
 }
 
 .justify-content-center {

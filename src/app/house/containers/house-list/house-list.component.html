@@ -9,7 +9,7 @@
                 <button class="view-button" (click)="getHouseByID(house.idHouse)">View</button>
                 <div *ngIf="isAdmin">
                     <div class="flex-row">
-                        <button class="update-button">Update</button>
+                        <button class="update-button" (click)="updateHouse(house.idHouse)">Update</button>
                         <button class="delete-button">Delete</button>
                     </div>
                 </div>

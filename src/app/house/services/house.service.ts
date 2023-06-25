@@ -21,4 +21,8 @@ export class HouseService {
   getHouseByID(id:number): Observable<House>{
     return this.http.get<House>(`${this.domainName}/houses/${id}`);
   }
+
+  updateHouse(updatedHouse: House, houseId:number): Observable<House>{
+    return this.http.put<House>(`${this.domainName}/houses/${houseId}`, updatedHouse)
+  }
 }

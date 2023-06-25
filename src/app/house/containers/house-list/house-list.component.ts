@@ -23,4 +23,8 @@ export class HouseListComponent implements OnInit {
   getHouseByID(id:number){
     this.router.navigateByUrl(`/houses/${id}`);
   }
+
+  updateHouse(id:number){
+    this.router.navigateByUrl(`/houses/${id}/update`);
+  }
 }

@@ -6,18 +6,22 @@ import { ChallengeRoutingModule } from './challenge-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ChallengeUpdateComponent } from './components/challenge-update/challenge-update.component';
 
 
 
 @NgModule({
   declarations: [
     ChallengeDetailComponent,
-    ChallengeListComponent
+    ChallengeListComponent,
+    ChallengeUpdateComponent
   ],
   imports: [
     CommonModule,
     ChallengeRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule,
     SharedModule
   ],

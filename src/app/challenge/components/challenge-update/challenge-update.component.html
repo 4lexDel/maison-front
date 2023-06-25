@@ -1,0 +1,38 @@
+<app-back-button></app-back-button>
+<div class="form-card flex-column justify-content-around">
+    <div class="flex-row justify-content-center">
+        <h1>Modifier challenge</h1>
+    </div>
+
+    <form [formGroup]="updateChallengeForm" class="flex-column justify-content-around">
+        <div class="form-group">
+            <label for="challengeName">Challenge</label>
+            <input type="text" id="challengeName" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="challengeDescription">Description</label>
+            <input type="text" id="challengeDescription" formControlName="description">
+        </div>
+        <div class="form-group">
+            <label for="dateExpiration">Date d'expiration</label>
+            <input type="date" id="dateExpiration" formControlName="expiration">
+        </div>
+        <div class="form-group">
+            <label for="challengeAward">Récompense</label>
+            <input type="number" id="challengeAward" formControlName="award">
+        </div>
+        <div class="form-group">
+            <label for="challengeAward">Succès</label>
+            <input type="checkbox" id="success" formControlName="success">
+        </div>
+
+        <div class="action-buttons">
+            <button type="button" class="update-button" (click)="onSubmitForm()">Update</button>
+        </div>
+    </form>
+    <br>
+    <div class="result">
+        <!-- {{response | titlecase}} -->
+        <div *ngIf="process" class="loader"></div>
+    </div>
+</div>
