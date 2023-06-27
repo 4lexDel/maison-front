@@ -8,6 +8,8 @@
 
 # Node
 /node_modules
+/node_modulesCURSED2
+/node_modulesCURSED
 npm-debug.log
 yarn-error.log
 

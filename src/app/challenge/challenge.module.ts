@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChallengeUpdateComponent } from './components/challenge-update/challenge-update.component';
+import { SendProofComponent } from './components/send-proof/send-proof.component';
 
 
 
@@ -15,7 +16,8 @@ import { ChallengeUpdateComponent } from './components/challenge-update/challeng
   declarations: [
     ChallengeDetailComponent,
     ChallengeListComponent,
-    ChallengeUpdateComponent
+    ChallengeUpdateComponent,
+    SendProofComponent
   ],
   imports: [
     CommonModule,
