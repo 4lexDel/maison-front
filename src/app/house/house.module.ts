@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { HouseUpdateComponent } from './components/house-update/house-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule, MatDialog, MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -24,11 +26,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
   exports :[
     HouseListComponent,
     HouseDetailComponent
-  ]
+  ],
 })
 export class HouseModule { }
