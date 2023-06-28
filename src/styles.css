@@ -46,24 +46,28 @@ button:hover {
     color: black;
 }
 
+.ok-button,
 .update-button,
 .login-button {
     border-color: rgb(40, 40, 234) !important;
     color: rgb(40, 40, 234) !important;
 }
 
+.ok-button:active,
 .update-button:active,
 .login-button:active {
     background-color: rgb(40, 40, 234) !important;
     color: black !important;
 }
 
-.delete-button {
+.delete-button,
+.cancel-button {
     border-color: red;
     color: red;
 }
 
-.delete-button:active {
+.delete-button:active,
+.cancel-button:active {
     background-color: red;
     color: black;
 }

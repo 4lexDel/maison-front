@@ -17,7 +17,8 @@ export class HouseListComponent implements OnInit {
 
   houseList$!:Observable<House[]>;
 
-  dialogRef!: MatDialogRef<ConfirmationDialogComponent>;
+  confirmationDialogVisible: boolean = false;
+
 
   constructor(private houseService: HouseService, private router: Router, private dialog: MatDialog) { }
 
@@ -34,18 +35,22 @@ export class HouseListComponent implements OnInit {
   }
 
   deleteHouse(){
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      width: '250px'
-    });
 
-    dialogRef.afterClosed().subscribe((result:any) => {
-      if (result) {
-        // Action à effectuer si l'utilisateur a confirmé
-        console.log('Confirmation reçue.');
-      } else {
-        // Action à effectuer si l'utilisateur a annulé
-        console.log('Confirmation annulée.');
-      }
-    });
+  }
+
+  openConfirmationDialog() {
+    this.confirmationDialogVisible = true;
+  }
+
+  onConfirmation(confirmed: boolean) {
+    this.confirmationDialogVisible = false;
+
+    if (confirmed) {
+      // L'action confirmée
+      console.log('Action confirmée');
+    } else {
+      // L'action annulée
+      console.log('Action annulée');
+    }
   }
 }

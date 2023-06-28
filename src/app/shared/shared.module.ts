@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';  
 import { MatButtonModule } from '@angular/material';
+import { ConfirmationPopupComponent } from './components/confirmation-popup/confirmation-popup.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     BackButtonComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ConfirmationPopupComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { MatButtonModule } from '@angular/material';
   exports: [
     HeaderComponent,
     BackButtonComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ConfirmationPopupComponent
   ],
 })
 export class SharedModule { }

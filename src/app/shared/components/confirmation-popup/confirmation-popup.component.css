@@ -1,0 +1,36 @@
+.confirmation-dialog {
+    border: 4px #949494 solid;
+    border-radius: 15px;
+    box-shadow: 1px black;
+    background-color: rgb(234 234 234);
+    padding: 20px;
+    /* margin: 5px; */
+    max-width: 300px;
+    height: fit-content;
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.confirmation-dialog p {
+    margin-bottom: 10px;
+    padding: 15px;
+    color: black;
+}
+
+.confirmation-dialog button {
+    margin-right: 10px;
+}
+
+.confirmation-dialog-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+}
