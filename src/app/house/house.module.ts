@@ -29,7 +29,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     MatDialogModule,
     MatButtonModule,
-    BrowserAnimationsModule
   ],
   exports :[
     HouseListComponent,

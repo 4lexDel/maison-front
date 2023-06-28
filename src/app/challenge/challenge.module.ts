@@ -25,7 +25,7 @@ import { SendProofComponent } from './components/send-proof/send-proof.component
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
   ],
   exports :[
     ChallengeListComponent,

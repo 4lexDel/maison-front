@@ -4,8 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { RouterModule } from '@angular/router';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';  
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';  
 import { MatButtonModule } from '@angular/material';
 
 
@@ -20,7 +19,6 @@ import { MatButtonModule } from '@angular/material';
     RouterModule,
     MatDialogModule,
     MatButtonModule,
-    BrowserAnimationsModule
   ],
   exports: [
     HeaderComponent,
