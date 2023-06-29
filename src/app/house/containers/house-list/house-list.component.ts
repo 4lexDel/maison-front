@@ -25,6 +25,11 @@ export class HouseListComponent implements OnInit {
     this.updateHouseList();
   }
 
+  addHouse(): void {
+    this.houseList$ = this.houseService.getHouseList();
+    this.router.navigateByUrl(`/houses/add`);
+  }
+
   updateHouseList(): void {
     this.houseList$ = this.houseService.getHouseList();
   }

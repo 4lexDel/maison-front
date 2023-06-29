@@ -1,7 +1,7 @@
 <div class="flex-column justify-content-start align-items-center">
-    <div class="flex-row w-100 h-100 justify-content-center">
+    <div class="flex-row justify-content-center">
         <h1 class="px-4">Liste des Maisons</h1>
-        <button *ngIf="isAdmin" class="add-button px-3">+</button>
+        <button *ngIf="isAdmin" class="add-button px-3" (click)="addHouse()">+</button>
     </div>
     <div class="flex-row justify-content-center">
         <div class="card" *ngFor="let house of houseList$ | async">

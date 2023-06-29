@@ -25,6 +25,10 @@ export class ChallengeListComponent implements OnInit {
     this.updateChallengeList();
   }
 
+  addChallenge(){
+    this.router.navigateByUrl(`/challenges/add`);
+  }
+
   updateChallengeList(): void {
     this.challengeList$ = this.challengeService.getChallengeList();
   }

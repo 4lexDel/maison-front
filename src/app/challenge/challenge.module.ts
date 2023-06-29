@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChallengeUpdateComponent } from './components/challenge-update/challenge-update.component';
 import { SendProofComponent } from './components/send-proof/send-proof.component';
+import { ChallengeAddingComponent } from './components/challenge-adding/challenge-adding.component';
 
 
 
@@ -17,7 +18,8 @@ import { SendProofComponent } from './components/send-proof/send-proof.component
     ChallengeDetailComponent,
     ChallengeListComponent,
     ChallengeUpdateComponent,
-    SendProofComponent
+    SendProofComponent,
+    ChallengeAddingComponent
   ],
   imports: [
     CommonModule,

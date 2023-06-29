@@ -23,6 +23,10 @@ export class ChallengeService {
     return this.http.get<Challenge>(`${this.domainName}/challenges/${id}`);
   }
 
+  addChallenge(createdChallenge: Challenge): Observable<Challenge>{
+    return this.http.post<Challenge>(`${this.domainName}/challenges/`, createdChallenge);
+  }
+
   updateChallenge(updatedChallenge: Challenge, challengeId:number): Observable<Challenge>{
     return this.http.put<Challenge>(`${this.domainName}/challenges/${challengeId}`, updatedChallenge)
   }
