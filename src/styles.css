@@ -1,3 +1,6 @@
+@import url(flexTools.css);
+@import url(buttonTools.css);
+@import url(layout.css);
 body {
     margin: 0;
     background-color: #323232;
@@ -13,63 +16,10 @@ label {
     color: rgb(199, 199, 199);
 }
 
-button {
-    margin: 1px;
+hr {
+    color: transparent;
     background-color: transparent;
-    border: solid 2px;
-    border-radius: 5px;
-    font-size: 14px;
-    padding: 5px 10px;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-.white-button {
-    border-color: rgb(188, 186, 186);
-    color: rgb(188, 186, 186);
-}
-
-.white-button:active {
-    background-color: rgb(188, 186, 186);
-    color: black;
-}
-
-.view-button {
-    border-color: black;
-    color: black;
-}
-
-.view-button:active {
-    background-color: rgb(188, 186, 186);
-    color: black;
-}
-
-.ok-button,
-.update-button,
-.login-button {
-    border-color: rgb(40, 40, 234) !important;
-    color: rgb(40, 40, 234) !important;
-}
-
-.ok-button:active,
-.update-button:active,
-.login-button:active {
-    background-color: rgb(40, 40, 234) !important;
-    color: black !important;
-}
-
-.delete-button,
-.cancel-button {
-    border-color: red;
-    color: red;
-}
-
-.delete-button:active,
-.cancel-button:active {
-    background-color: red;
-    color: black;
+    border: 2px dashed rgb(108, 108, 108);
 }
 
 
@@ -124,62 +74,4 @@ button:hover {
     100% {
         transform: rotate(360deg);
     }
-}
-
-
-/***/
-
-.flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.flex-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.align-items-center {
-    align-items: center;
-}
-
-.align-items-start {
-    align-items: start;
-}
-
-.align-items-end {
-    align-items: end;
-}
-
-.align-items-stretch {
-    align-items: stretch;
-}
-
-.justify-content-center {
-    justify-content: center;
-}
-
-.justify-content-start {
-    justify-content: start;
-}
-
-.justify-content-end {
-    justify-content: end;
-}
-
-.justify-content-around {
-    justify-content: space-around;
-}
-
-.justify-content-between {
-    justify-content: space-between;
 }

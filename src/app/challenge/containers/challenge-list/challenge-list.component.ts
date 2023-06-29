@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ChallengeService } from '../../services/challenge.service';
 import { Router } from '@angular/router';
 import { Challenge } from 'src/app/core/models/challenge.model';
 import { Observable } from 'rxjs';
+import { ConfirmationPopupComponent } from 'src/app/shared/components/confirmation-popup/confirmation-popup.component';
+
 
 @Component({
   selector: 'app-challenge-list',
@@ -14,9 +16,16 @@ export class ChallengeListComponent implements OnInit {
 
   challengeList$!:Observable<Challenge[]>;
 
+  @ViewChild('confirmationPopup') confirmationPopup!: ConfirmationPopupComponent;
+  challengeToDelete!:number;
+
   constructor(private challengeService: ChallengeService, private router: Router) { }
 
   ngOnInit(): void {
+    this.updateChallengeList();
+  }
+
+  updateChallengeList(): void {
     this.challengeList$ = this.challengeService.getChallengeList();
   }
 
@@ -26,5 +35,18 @@ export class ChallengeListComponent implements OnInit {
 
   updateChallenge(id:number){
     this.router.navigateByUrl(`/challenges/${id}/update`);
+  }
+
+  openConfirmationDialog(id:number) {
+    this.challengeToDelete = id;
+    this.confirmationPopup.open();
+  }
+
+  onDeleteConfirmation(confirmed: boolean) {
+    if (confirmed) {
+      this.challengeService.deleteChallenge(this.challengeToDelete).subscribe((res) => {
+        this.updateChallengeList();
+      });
+    }
   }
 }

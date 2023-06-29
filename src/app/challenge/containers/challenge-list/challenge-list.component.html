@@ -1,5 +1,8 @@
 <div class="flex-column justify-content-start align-items-center">
-    <h1>Challenge'list</h1>
+    <div class="flex-row w-100 h-100 justify-content-center">
+        <h1 class="px-4">Liste des Challenges</h1>
+        <button *ngIf="isAdmin" class="add-button px-3">+</button>
+    </div>
     <div class="flex-row justify-content-center">
         <div class="card" *ngFor="let challenge of challengeList$ | async">
             <h2>{{challenge.title}}</h2>
@@ -11,7 +14,7 @@
                 <div *ngIf="isAdmin">
                     <div class="flex-row">
                         <button class="update-button" (click)="updateChallenge(challenge.idChallenge)">Update</button>
-                        <button class="delete-button">Delete</button>
+                        <button class="delete-button" (click)="openConfirmationDialog(challenge.idChallenge)">Delete</button>
                     </div>
                 </div>
             </div>
@@ -24,3 +27,5 @@
         </ng-template>
     </div>
 </div>
+
+<app-confirmation-popup #confirmationPopup [textPopup]="'Confirmation de la suppression ?'" (confirmed)="onDeleteConfirmation($event)"></app-confirmation-popup>

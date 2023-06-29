@@ -1,0 +1,127 @@
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.p-1 {
+    padding: 3px;
+}
+
+.px-1 {
+    padding: 0px 3px;
+}
+
+.py-1 {
+    padding: 3px 0px;
+}
+
+.p-2 {
+    padding: 5px;
+}
+
+.px-2 {
+    padding: 0px 5px;
+}
+
+.py-2 {
+    padding: 5px 0px;
+}
+
+.p-3 {
+    padding: 10px;
+}
+
+.px-3 {
+    padding: 0px 10px;
+}
+
+.py-3 {
+    padding: 10px 0px;
+}
+
+.p-4 {
+    padding: 20px;
+}
+
+.px-4 {
+    padding: 0px 20px;
+}
+
+.py-4 {
+    padding: 20px 0px;
+}
+
+.p-5 {
+    padding: 50px;
+}
+
+.px-5 {
+    padding: 0px 50px;
+}
+
+.py-5 {
+    padding: 50px 0px;
+}
+
+.m-1 {
+    margin: 3px;
+}
+
+.mx-1 {
+    margin: 0px 3px;
+}
+
+.my-1 {
+    margin: 3px 0px;
+}
+
+.m-2 {
+    margin: 5px;
+}
+
+.mx-2 {
+    margin: 0px 5px;
+}
+
+.my-2 {
+    margin: 5px 0px;
+}
+
+.m-3 {
+    margin: 10px;
+}
+
+.mx-3 {
+    margin: 0px 10px;
+}
+
+.my-3 {
+    margin: 10px 0px;
+}
+
+.m-4 {
+    margin: 20px;
+}
+
+.mx-4 {
+    margin: 0px 20px;
+}
+
+.my-4 {
+    margin: 20px 0px;
+}
+
+.m-5 {
+    margin: 50px;
+}
+
+.mx-5 {
+    margin: 0px 50px;
+}
+
+.my-5 {
+    margin: 50px 0px;
+}

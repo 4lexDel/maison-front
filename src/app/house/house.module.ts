@@ -8,9 +8,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { HouseUpdateComponent } from './components/house-update/house-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatDialog, MatDialogModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 
 
@@ -27,8 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     RouterModule,
     SharedModule,
-    MatDialogModule,
-    MatButtonModule,
   ],
   exports :[
     HouseListComponent,

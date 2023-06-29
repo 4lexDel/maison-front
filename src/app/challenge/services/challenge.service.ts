@@ -26,4 +26,8 @@ export class ChallengeService {
   updateChallenge(updatedChallenge: Challenge, challengeId:number): Observable<Challenge>{
     return this.http.put<Challenge>(`${this.domainName}/challenges/${challengeId}`, updatedChallenge)
   }
+
+  deleteChallenge(challengeId:number): Observable<any>{
+    return this.http.delete<any>(`${this.domainName}/challenges/${challengeId}`);
+  }
 }

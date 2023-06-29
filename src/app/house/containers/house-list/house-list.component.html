@@ -1,5 +1,8 @@
 <div class="flex-column justify-content-start align-items-center">
-    <h1>Houses'list</h1>
+    <div class="flex-row w-100 h-100 justify-content-center">
+        <h1 class="px-4">Liste des Maisons</h1>
+        <button *ngIf="isAdmin" class="add-button px-3">+</button>
+    </div>
     <div class="flex-row justify-content-center">
         <div class="card" *ngFor="let house of houseList$ | async">
             <h2>{{house.title}}</h2>
@@ -10,7 +13,7 @@
                 <div *ngIf="isAdmin">
                     <div class="flex-row">
                         <button class="update-button" (click)="updateHouse(house.idHouse)">Update</button>
-                        <button class="delete-button" (click)="openConfirmationDialog()">Delete</button>
+                        <button class="delete-button" (click)="openConfirmationDialog(house.idHouse)">Delete</button>
                     </div>
                 </div>
             </div>
@@ -24,4 +27,4 @@
     </div>
 </div>
 
-<app-confirmation-popup *ngIf="confirmationDialogVisible" [textPopup]="'Confirmation de la suppression ?'" (confirmed)="onConfirmation($event)"></app-confirmation-popup>
+<app-confirmation-popup #confirmationPopup [textPopup]="'Confirmation de la suppression ?'" (confirmed)="onDeleteConfirmation($event)"></app-confirmation-popup>

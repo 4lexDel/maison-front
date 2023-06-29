@@ -23,6 +23,10 @@ export class HouseService {
   }
 
   updateHouse(updatedHouse: House, houseId:number): Observable<House>{
-    return this.http.put<House>(`${this.domainName}/houses/${houseId}`, updatedHouse)
+    return this.http.put<House>(`${this.domainName}/houses/${houseId}`, updatedHouse);
+  }
+
+  deleteHouse(houseId:number): Observable<any>{
+    return this.http.delete<any>(`${this.domainName}/houses/${houseId}`);
   }
 }

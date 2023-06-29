@@ -1,0 +1,76 @@
+button {
+    margin: 1px;
+    background-color: transparent;
+    border: solid 2px;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.add-button {
+    font-size: 30px;
+    margin: 10px;
+}
+
+.white-button,
+.add-button {
+    border-color: rgb(188, 186, 186);
+    color: rgb(188, 186, 186);
+}
+
+.white-button:active,
+.add-button:active {
+    background-color: rgb(188, 186, 186);
+    color: black;
+}
+
+.view-button {
+    border-color: black;
+    color: black;
+}
+
+.view-button:active {
+    background-color: black !important;
+    color: white !important;
+}
+
+.ok-button,
+.update-button,
+.login-button {
+    border-color: rgb(40, 40, 234) !important;
+    color: rgb(40, 40, 234) !important;
+}
+
+.ok-button:active,
+.update-button:active,
+.login-button:active {
+    background-color: rgb(40, 40, 234) !important;
+    color: white !important;
+}
+
+.delete-button,
+.cancel-button {
+    border-color: red;
+    color: red;
+}
+
+.delete-button:active,
+.cancel-button:active {
+    background-color: red;
+    color: white;
+}
+
+.green-button {
+    border-color: rgb(21, 132, 32)!important;
+    color: rgb(21, 132, 32)!important;
+    ;
+}
+
+.green-button:active {
+    background-color: rgb(21, 132, 32)!important;
+    color: white!important;
+}
