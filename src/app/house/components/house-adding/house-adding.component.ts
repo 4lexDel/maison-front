@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HouseService } from '../../services/house.service';
 import { lastValueFrom } from 'rxjs';
+import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 
 @Component({
   selector: 'app-house-adding',
@@ -10,6 +11,8 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./house-adding.component.css']
 })
 export class HouseAddingComponent {
+  @ViewChild("dangerAlert") dangerAlert!: AlertComponent;
+
   createHouseForm!: FormGroup;
   process:boolean = false;
   houseId!:number;
@@ -39,7 +42,8 @@ export class HouseAddingComponent {
       },
       (error) => {
         this.process = false;
-        // this.createHouseForm.reset();
+        
+        this.dangerAlert.activateAlert(2, error.error["message"]);
       });
     }
   }

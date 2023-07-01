@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +10,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild("dangerAlert") dangerAlert!: AlertComponent;
+
   registerForm!: FormGroup;
   passwordRegExp!:RegExp;
   response!:string;
@@ -28,15 +31,26 @@ export class RegisterComponent implements OnInit {
   }
 
   async onSubmitForm() {
-    this.process = true;
-    console.log(this.registerForm.value.username);
+    if(this.registerForm.valid){
+      this.process = true;
+      console.log(this.registerForm.value.username);
+  
+      if(this.registerForm.value. password != this.registerForm.value.confirmPassword){
+        this.dangerAlert.activateAlert(2, "Mot de passe et confirmation différents !");
+      }
+      else {
+        let response = await this.auth.register(this.registerForm.value);
 
-    if(this.registerForm.value. password != this.registerForm.value.confirmPassword){
-      this.response = "Mot de passe et confirmation différents !";
+        if(response == "1"){
+          this.router.navigateByUrl('/auth/login');   
+        }
+        else{
+          this.dangerAlert.activateAlert(2, response);
+        }
+      }
+  
+      this.process = false;
     }
-    else this.response = await this.auth.register(this.registerForm.value);
-
-    this.process = false;
   }
 
   login(){

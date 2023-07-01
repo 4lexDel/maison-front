@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @ViewChild("dangerAlert") dangerAlert!: AlertComponent;
+
   loginForm!: FormGroup;
   passwordRegExp!: RegExp;
   response!:string;
@@ -31,10 +34,20 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmitForm() {
-    this.process = true;
-    console.log(this.loginForm.value.username);
-    this.response = await this.auth.login(this.loginForm.value);
-    this.process = false;
+    if(this.loginForm.valid){
+      this.process = true;
+      console.log(this.loginForm.value.username);
+      let response = await this.auth.login(this.loginForm.value);
+
+      this.process = false;
+
+      if(response == "1"){
+        this.router.navigateByUrl('/admin');
+      }
+      else{
+        this.dangerAlert.activateAlert(2, response);
+      }
+    }
   }
 
   register() {

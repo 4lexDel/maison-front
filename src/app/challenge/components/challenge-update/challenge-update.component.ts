@@ -33,14 +33,16 @@ export class ChallengeUpdateComponent implements OnInit {
   }
 
   async onSubmitForm() {
-    this.process = true;
-    let newChallenge = this.updateChallengeForm.value;
-
-    console.log(newChallenge);
-    
-    let newHouseReceive = await lastValueFrom(this.challengeService.updateChallenge(newChallenge, this.challengeId));
-    this.router.navigateByUrl(`/challenges/${this.challengeId}`);
-
-    this.process = false;
+    if(this.updateChallengeForm.valid){
+      this.process = true;
+      let newChallenge = this.updateChallengeForm.value;
+  
+      console.log(newChallenge);
+      
+      let newHouseReceive = await lastValueFrom(this.challengeService.updateChallenge(newChallenge, this.challengeId));
+      this.router.navigateByUrl(`/challenges/${this.challengeId}`);
+  
+      this.process = false;
+    }
   }
 }

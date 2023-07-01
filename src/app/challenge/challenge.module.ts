@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ChallengeUpdateComponent } from './components/challenge-update/challenge-update.component';
 import { SendProofComponent } from './components/send-proof/send-proof.component';
 import { ChallengeAddingComponent } from './components/challenge-adding/challenge-adding.component';
+import { ProofAddingComponent } from './components/proof-adding/proof-adding.component';
 
 
 
@@ -19,7 +20,8 @@ import { ChallengeAddingComponent } from './components/challenge-adding/challeng
     ChallengeListComponent,
     ChallengeUpdateComponent,
     SendProofComponent,
-    ChallengeAddingComponent
+    ChallengeAddingComponent,
+    ProofAddingComponent
   ],
   imports: [
     CommonModule,

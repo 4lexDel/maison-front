@@ -5,11 +5,13 @@ import { ChallengeDetailComponent } from './components/challenge-detail/challeng
 import { ChallengeUpdateComponent } from './components/challenge-update/challenge-update.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { ChallengeAddingComponent } from './components/challenge-adding/challenge-adding.component';
+import { ProofAddingComponent } from './components/proof-adding/proof-adding.component';
 
 const routes: Routes = [
   { path: '', component:  ChallengeListComponent},
   { path: 'add', component:  ChallengeAddingComponent, canActivate: [AuthGuard]},
   { path: ':id/update', component:  ChallengeUpdateComponent, canActivate: [AuthGuard]},
+  { path: ':id/send-proof', component:  ProofAddingComponent},
   { path: ':id', component:  ChallengeDetailComponent},
 ];
 

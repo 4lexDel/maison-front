@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -21,7 +22,8 @@ import { AuthRoutingModule } from './auth-routing.module';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    SharedModule
   ],
   exports:[
     ChangePasswordComponent,

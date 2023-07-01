@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ChallengeService } from '../../services/challenge.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 
 @Component({
   selector: 'app-challenge-adding',
@@ -9,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./challenge-adding.component.css']
 })
 export class ChallengeAddingComponent {
+  @ViewChild("dangerAlert") dangerAlert!: AlertComponent;
+
   createChallengeForm!: FormGroup;
   process:boolean = false;
   houseId!:number;
@@ -40,7 +43,8 @@ export class ChallengeAddingComponent {
       },
       (error) => {
         this.process = false;
-        // this.createChallengeForm.reset();
+        
+        this.dangerAlert.activateAlert(2, error.error["message"]);
       });
     }
   }

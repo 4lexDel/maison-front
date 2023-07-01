@@ -31,8 +31,7 @@ export class AuthService {          //Voir ==> https://openclassrooms.com/fr/cou
                 (response) => {
                     this.token = response.token;
                     this.idUser = response.idUser;
-                    this.router.navigateByUrl('/admin');
-                    resolve("Success !");
+                    resolve("1");
                 },
                 (err) => {
                     console.log(err.error.error);
@@ -47,9 +46,8 @@ export class AuthService {          //Voir ==> https://openclassrooms.com/fr/cou
         return new Promise(async(resolve, reject) => {
         this.http.post<any>(`${this.domainName}/register`, informations).subscribe(
             (response) => {
-                console.log(response);
-                this.router.navigateByUrl('/auth/login');       
-                resolve(response);
+                console.log(response);    
+                resolve("1");
             },
             (err) => {
                 console.log(err.error.error);

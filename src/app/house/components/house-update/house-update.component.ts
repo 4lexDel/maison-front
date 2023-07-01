@@ -31,14 +31,16 @@ export class HouseUpdateComponent implements OnInit {
   }
 
   async onSubmitForm() {
-    this.process = true;
-    let newHouse = this.updateHouseForm.value;
-
-    console.log(newHouse);
-    
-    let newHouseReceive = await lastValueFrom(this.houseService.updateHouse(newHouse, this.houseId));
-    this.router.navigateByUrl(`/houses/${this.houseId}`);
-
-    this.process = false;
+    if(this.updateHouseForm.valid){
+      this.process = true;
+      let newHouse = this.updateHouseForm.value;
+  
+      console.log(newHouse);
+      
+      let newHouseReceive = await lastValueFrom(this.houseService.updateHouse(newHouse, this.houseId));
+      this.router.navigateByUrl(`/houses/${this.houseId}`);
+  
+      this.process = false;
+    }
   }
 }

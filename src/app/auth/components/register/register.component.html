@@ -1,3 +1,5 @@
+<app-alert #dangerAlert [alertType]="'danger'"></app-alert>
+
 <div class="form-card flex-column justify-content-around">
     <div class="flex-row justify-content-center">
         <h1>S'enregistrer</h1>
@@ -22,7 +24,6 @@
         </div>
     </form>
     <div class="result">
-        {{response | titlecase}}
         <div *ngIf="process" class="loader"></div>
     </div>
 </div>

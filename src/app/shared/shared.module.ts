@@ -4,13 +4,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { RouterModule } from '@angular/router';
 import { ConfirmationPopupComponent } from './components/confirmation-popup/confirmation-popup.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     BackButtonComponent,
-    ConfirmationPopupComponent
+    ConfirmationPopupComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { ConfirmationPopupComponent } from './components/confirmation-popup/conf
   exports: [
     HeaderComponent,
     BackButtonComponent,
-    ConfirmationPopupComponent
+    ConfirmationPopupComponent,
+    AlertComponent
   ],
 })
 export class SharedModule { }
