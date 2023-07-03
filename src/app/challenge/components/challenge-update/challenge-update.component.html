@@ -23,11 +23,11 @@
         </div>
         <div class="form-group">
             <label for="challengeAward">Succès</label>
-            <input type="checkbox" id="success" formControlName="success">
+            <input type="checkbox" id="success" formControlName="success" value="0">
         </div>
 
         <div class="action-buttons">
-            <button type="button" class="update-button" (click)="onSubmitForm()">Update</button>
+            <button type="button" class="update-button" [ngClass]="{'btn-disabled': !updateChallengeForm.valid}" (click)="onSubmitForm()">Update</button>
         </div>
     </form>
     <br>

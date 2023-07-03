@@ -17,7 +17,7 @@
         </div>
 
         <div class="action-buttons">
-            <button type="button" (click)="onSubmitForm()" class="login-button">Connexion</button>
+            <button type="button" [ngClass]="{'btn-disabled': !loginForm.valid}" (click)="onSubmitForm()" class="login-button">Connexion</button>
             <button type="button" (click)="register()" class="green-button">S'enregistrer</button>
         </div>
     </form>

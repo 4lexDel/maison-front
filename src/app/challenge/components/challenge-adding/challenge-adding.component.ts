@@ -24,7 +24,7 @@ export class ChallengeAddingComponent {
       description: [null, [Validators.required]],
       expiration: [null, [Validators.required]],
       award: [null, [Validators.required]],
-      success: [null, [Validators.required]],
+      success: [0, [Validators.required]],
     });
   }
 

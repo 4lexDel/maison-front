@@ -23,17 +23,3 @@
     align-items: center;
     justify-content: space-between;
 }
-
-input,
-textarea {
-    width: 50%;
-}
-
-.action-buttons {
-    width: 100%;
-}
-
-button {
-    display: block;
-    margin: 20px auto;
-}

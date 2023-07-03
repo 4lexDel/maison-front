@@ -19,7 +19,7 @@
         </div>
 
         <div class="action-buttons">
-            <button type="button" class="update-button" (click)="onSubmitForm()">Update</button>
+            <button type="button" class="update-button" [ngClass]="{'btn-disabled': !updateHouseForm.valid}" (click)="onSubmitForm()">Update</button>
         </div>
     </form>
     <br>

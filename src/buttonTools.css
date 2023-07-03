@@ -7,7 +7,7 @@ button {
     padding: 5px 10px;
 }
 
-button:hover {
+button:hover:not(.btn-disabled) {
     opacity: 0.9;
 }
 
@@ -22,8 +22,8 @@ button:hover {
     color: rgb(188, 186, 186);
 }
 
-.white-button:active,
-.add-button:active {
+.white-button:active:not(.btn-disabled),
+.add-button:active:not(.btn-disabled) {
     background-color: rgb(188, 186, 186);
     color: black;
 }
@@ -33,7 +33,7 @@ button:hover {
     color: black;
 }
 
-.view-button:active {
+.view-button:active:not(.btn-disabled) {
     background-color: black !important;
     color: white !important;
 }
@@ -46,8 +46,8 @@ button:hover {
 }
 
 .ok-button:active,
-.update-button:active,
-.login-button:active {
+.update-button:active:not(.btn-disabled),
+.login-button:active:not(.btn-disabled) {
     background-color: rgb(40, 40, 234) !important;
     color: white !important;
 }
@@ -58,8 +58,8 @@ button:hover {
     color: red;
 }
 
-.delete-button:active,
-.cancel-button:active {
+.delete-button:active:not(.btn-disabled),
+.cancel-button:active:not(.btn-disabled) {
     background-color: red;
     color: white;
 }
@@ -69,7 +69,17 @@ button:hover {
     color: rgb(21, 132, 32)!important;
 }
 
-.green-button:active {
+.green-button:active:not(.btn-disabled) {
     background-color: rgb(21, 132, 32)!important;
     color: white!important;
 }
+
+.btn-disabled {
+    opacity: 0.4;
+}
+
+
+/* .btn-disabled:active {
+    all: initial;
+    opacity: 0.5;
+} */

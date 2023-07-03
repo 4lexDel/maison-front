@@ -29,7 +29,7 @@
         </div>
 
         <div class="action-buttons">
-            <button type="button" class="green-button" (click)="onSubmitForm()">Create</button>
+            <button type="button" class="green-button" [ngClass]="{'btn-disabled': !createChallengeForm.valid}" (click)="onSubmitForm()">Create</button>
         </div>
     </form>
     <br>
