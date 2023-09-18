@@ -1,0 +1,30 @@
+/* mon-formulaire.component.css */
+
+
+/* Style de la div contenant les images */
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* Espace entre les images */
+    overflow-y: auto;
+    /* Activer la barre de défilement verticale si nécessaire */
+    max-height: 300px;
+    /* Hauteur maximale de la div */
+}
+
+
+/* Style des images individuelles */
+
+.image-container img {
+    max-width: 20%;
+    /* Hauteur maximale de l'image */
+    height: auto;
+    /* Ajustez automatiquement la largeur en fonction de la hauteur */
+    border: 1px solid #ccc;
+    /* Ajouter une bordure autour des images */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* Ajouter une ombre légère */
+}

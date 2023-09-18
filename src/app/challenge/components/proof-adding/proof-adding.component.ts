@@ -47,7 +47,7 @@ export class ProofAddingComponent implements OnInit {
 
             // Redimensionner l'image
             imageElement.onload = () => {
-              console.log("draw");
+              //console.log("draw");
               
               const canvas = document.createElement('canvas');
               const ctx = canvas.getContext('2d');

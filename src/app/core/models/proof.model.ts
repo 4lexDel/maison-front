@@ -1,12 +1,12 @@
 export class Proof{
     constructor(
-        public idProof:number,
-        public dateProof:Date,
-        public proofImg:Blob,
-        public description:string,
-        public accepted:number,
-        public challengerName:string,
-        public idHouse:number,
-        public idChallenge:number,
+        public idProof:number,//----------------------def
+        public dateProof:Date,//----------------------def
+        public proofImg:Blob,//----------------------Input
+        public description:string,//----------------------Input
+        public accepted:number,//----------------------def
+        public challengerName:string,//----------------------Input
+        public idHouse:number,//----------------------Input
+        public idChallenge:number,//----------------obvious
         ){}
     }

@@ -11,6 +11,7 @@ import { ChallengeUpdateComponent } from './components/challenge-update/challeng
 import { SendProofComponent } from './components/send-proof/send-proof.component';
 import { ChallengeAddingComponent } from './components/challenge-adding/challenge-adding.component';
 import { ProofAddingComponent } from './components/proof-adding/proof-adding.component';
+import { TestImgInputComponent } from './components/test-img-input/test-img-input.component';
 
 
 
@@ -21,7 +22,8 @@ import { ProofAddingComponent } from './components/proof-adding/proof-adding.com
     ChallengeUpdateComponent,
     SendProofComponent,
     ChallengeAddingComponent,
-    ProofAddingComponent
+    ProofAddingComponent,
+    TestImgInputComponent
   ],
   imports: [
     CommonModule,
