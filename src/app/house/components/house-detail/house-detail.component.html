@@ -5,12 +5,15 @@
 
     <div class="flex-container">
         <div class="card" *ngIf="house$ | async as house else loading">
-            <h2>{{house.title}}</h2>
-            <p>{{house.description}}</p>
-            <p>Score : {{house.score}}</p>
-            <br>
+            <div class="card-title">
+                <h2>{{house.title}}</h2>
+                <h2>|</h2>
+                <h2>{{house.score}} pts</h2>
+            </div>
+            <div class="card-content">
+                <p>{{house.description}}</p>
+            </div>
         </div>
-        <br>
 
         <ng-template #loading>
             <div class="loader center"></div>

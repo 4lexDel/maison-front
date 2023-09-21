@@ -1,23 +1,9 @@
-<header class="flex-row justify-content-between align-items-center">
-    <div class="flex-row">
-        <h1>CESI'quipage</h1>
-    </div>
-    <div class="flex-row">
-        <div class="hamburger-menu">
-            <input type="checkbox" id="burger-checkbox">
-            <label for="burger-checkbox" class="burger-icon">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </label>
-            <nav class="menu">
-                <ul>
-                    <li><a routerLink="/home">Home</a></li>
-                    <li><a routerLink="/houses">Houses</a></li>
-                    <li><a routerLink="/challenges">Challenges</a></li>
-                    <li><a routerLink="/admin">Admin</a></li>
-                </ul>
-            </nav>
-        </div>
+<header>
+    <h1 class="pl-3">CESI'quipage</h1>
+    <div class="links flex-row justify-content-center p-3">
+        <a routerLink="/home" class="px-3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a routerLink="/houses" class="px-3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Houses</a>
+        <a routerLink="/challenges" class="px-3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Challenges</a>
+        <a routerLink="/admin" class="px-3" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Admin</a>
     </div>
 </header>

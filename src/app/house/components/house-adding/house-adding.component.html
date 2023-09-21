@@ -1,32 +1,34 @@
 <app-alert #dangerAlert [alertType]="'danger'"></app-alert>
 
 <app-back-button></app-back-button>
-<div class="form-card flex-column justify-content-around">
-    <div class="flex-row justify-content-center">
-        <h1>Ajouter une Maison</h1>
-    </div>
 
-    <form [formGroup]="createHouseForm" class="flex-column justify-content-around">
-        <div class="form-group">
-            <label for="houseName">House</label>
-            <input type="text" id="houseName" formControlName="title">
-        </div>
-        <div class="form-group">
-            <label for="houseScore">Score</label>
-            <input type="number" id="houseScore" formControlName="score">
-        </div>
-        <div class="form-group">
-            <label for="houseDescription">Description</label>
-            <input type="text" id="houseDescription" formControlName="description">
+<div class="flex-container m-5">
+    <div class="card">
+        <div class="card-title">
+            <h2>Add a new house</h2>
         </div>
 
-        <div class="action-buttons">
-            <button type="button" class="green-button" [ngClass]="{'btn-disabled': !createHouseForm.valid}" (click)="onSubmitForm()">Create</button>
+        <form [formGroup]="createHouseForm">
+            <div class="form-group card-content P-3">
+                <label for="houseName">House</label>
+                <input type="text" id="houseName" formControlName="title">
+            </div>
+            <div class="form-group card-content P-3">
+                <label for="houseScore">Score</label>
+                <input type="number" id="houseScore" formControlName="score">
+            </div>
+            <div class="form-group card-content P-3">
+                <label for="houseDescription">Description</label>
+                <input type="text" id="houseDescription" formControlName="description">
+            </div>
+
+            <div class="card-footer">
+                <button type="button" class="primary-button" [ngClass]="{'btn-disabled': !createHouseForm.valid}" (click)="onSubmitForm()">Create</button>
+            </div>
+        </form>
+        <div class="result">
+            <!-- {{response | titlecase}} -->
+            <div *ngIf="process" class="loader"></div>
         </div>
-    </form>
-    <br>
-    <div class="result">
-        <!-- {{response | titlecase}} -->
-        <div *ngIf="process" class="loader"></div>
     </div>
 </div>

@@ -1,29 +1,32 @@
 <app-alert #dangerAlert [alertType]="'danger'"></app-alert>
 
-<div class="form-card flex-column justify-content-around">
-    <div class="flex-row justify-content-center">
-        <h1>S'enregistrer</h1>
-    </div>
+<div class="flex-container m-5">
+    <div class="card">
+        <div class="card-title">
+            <h2>Register</h2>
+        </div>
 
-    <form [formGroup]="registerForm" class="flex-column justify-content-around">
-        <div class="form-group">
-            <label for="username">Pseudo</label>
-            <input type="text" id="username" formControlName="username">
+        <form [formGroup]="registerForm">
+            <div class="form-group card-content P-4">
+                <label for="username">Username</label>
+                <input type="text" id="username" formControlName="username">
+            </div>
+            <div class="form-group card-content P-4">
+                <label for="password">Password</label>
+                <input type="password" id="password" formControlName="password">
+            </div>
+            <div class="form-group card-content P-4">
+                <label for="confirmPassword">Confirm password</label>
+                <input type="password" id="confirmPassword" formControlName="confirmPassword">
+            </div>
+
+            <div class="card-footer p-2">
+                <button type="button" [ngClass]="{'btn-disabled': !registerForm.valid}" (click)="onSubmitForm()" class="primary-button">Sign in</button>
+                <button type="button" (click)="login()" class="secondary-button">Login</button>
+            </div>
+        </form>
+        <div class="result">
+            <div *ngIf="process" class="loader"></div>
         </div>
-        <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" formControlName="password">
-        </div>
-        <div class="form-group">
-            <label for="confirmPassword">Confirmer mot de passe</label>
-            <input type="password" id="confirmPassword" formControlName="confirmPassword">
-        </div>
-        <div class="action-buttons">
-            <button type="button" [ngClass]="{'btn-disabled': !registerForm.valid}" (click)="onSubmitForm()" class="green-button">Enregistrer</button>
-            <button type="button" (click)="login()" class="login-button">Se connecter</button>
-        </div>
-    </form>
-    <div class="result">
-        <div *ngIf="process" class="loader"></div>
     </div>
 </div>

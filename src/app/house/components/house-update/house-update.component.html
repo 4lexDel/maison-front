@@ -1,30 +1,32 @@
 <app-back-button></app-back-button>
-<div class="form-card flex-column justify-content-around">
-    <div class="flex-row justify-content-center">
-        <h1>Modifier maison</h1>
-    </div>
 
-    <form [formGroup]="updateHouseForm" class="flex-column justify-content-around">
-        <div class="form-group">
-            <label for="houseName">House</label>
-            <input type="text" id="houseName" formControlName="title">
-        </div>
-        <div class="form-group">
-            <label for="houseScore">Score</label>
-            <input type="number" id="houseScore" formControlName="score">
-        </div>
-        <div class="form-group">
-            <label for="houseDescription">Description</label>
-            <input type="text" id="houseDescription" formControlName="description">
+<div class="flex-container m-5">
+    <div class="card">
+        <div class="card-title">
+            <h2>Update house</h2>
         </div>
 
-        <div class="action-buttons">
-            <button type="button" class="update-button" [ngClass]="{'btn-disabled': !updateHouseForm.valid}" (click)="onSubmitForm()">Update</button>
+        <form [formGroup]="updateHouseForm">
+            <div class="form-group card-content P-3">
+                <label for="houseName">House</label>
+                <input type="text" id="houseName" formControlName="title">
+            </div>
+            <div class="form-group card-content P-3">
+                <label for="houseScore">Score</label>
+                <input type="number" id="houseScore" formControlName="score">
+            </div>
+            <div class="form-group card-content P-3">
+                <label for="houseDescription">Description</label>
+                <input type="text" id="houseDescription" formControlName="description">
+            </div>
+
+            <div class="card-footer p-2">
+                <button type="button" class="primary-button" [ngClass]="{'btn-disabled': !updateHouseForm.valid}" (click)="onSubmitForm()">Update</button>
+            </div>
+        </form>
+        <div class="result">
+            <!-- {{response | titlecase}} -->
+            <div *ngIf="process" class="loader"></div>
         </div>
-    </form>
-    <br>
-    <div class="result">
-        <!-- {{response | titlecase}} -->
-        <div *ngIf="process" class="loader"></div>
     </div>
 </div>

@@ -1,40 +1,43 @@
 <app-alert #dangerAlert [alertType]="'danger'"></app-alert>
 
 <app-back-button></app-back-button>
-<div class="form-card flex-column justify-content-around">
-    <div class="flex-row justify-content-center">
-        <h1>Ajouter un Challenge</h1>
-    </div>
 
-    <form [formGroup]="createChallengeForm" class="flex-column justify-content-around">
-        <div class="form-group">
-            <label for="challengeName">Challenge</label>
-            <input type="text" id="challengeName" formControlName="title">
-        </div>
-        <div class="form-group">
-            <label for="challengeDescription">Description</label>
-            <input type="text" id="challengeDescription" formControlName="description">
-        </div>
-        <div class="form-group">
-            <label for="dateExpiration">Date d'expiration</label>
-            <input type="date" id="dateExpiration" formControlName="expiration">
-        </div>
-        <div class="form-group">
-            <label for="challengeAward">Récompense</label>
-            <input type="number" id="challengeAward" formControlName="award">
-        </div>
-        <div class="form-group">
-            <label for="challengeAward">Succès</label>
-            <input type="checkbox" id="success" formControlName="success">
+<div class="flex-container m-5">
+    <div class="card">
+        <div class="card-title">
+            <h2>Add a new challenge</h2>
         </div>
 
-        <div class="action-buttons">
-            <button type="button" class="green-button" [ngClass]="{'btn-disabled': !createChallengeForm.valid}" (click)="onSubmitForm()">Create</button>
+        <form [formGroup]="createChallengeForm">
+            <div class="form-group card-content P-3">
+                <label for="challengeName">Challenge</label>
+                <input type="text" id="challengeName" formControlName="title">
+            </div>
+            <div class="form-group card-content P-3">
+                <label for="challengeDescription">Description</label>
+                <input type="text" id="challengeDescription" formControlName="description">
+            </div>
+            <div class="form-group card-content P-3">
+                <label for="dateExpiration">Expiration date</label>
+                <input type="date" id="dateExpiration" formControlName="expiration">
+            </div>
+            <div class="form-group card-content P-3">
+                <label for="challengeAward">Award</label>
+                <input type="number" id="challengeAward" formControlName="award">
+            </div>
+            <div class="form-group card-content P-3">
+                <label for="challengeAward">Success</label>
+                <input type="checkbox" id="success" formControlName="success">
+            </div>
+
+            <div class="card-footer p-2">
+                <button type="button" class="primary-button" [ngClass]="{'btn-disabled': !createChallengeForm.valid}" (click)="onSubmitForm()">Create</button>
+            </div>
+        </form>
+
+        <div class="result">
+            <!-- {{response | titlecase}} -->
+            <div *ngIf="process" class="loader"></div>
         </div>
-    </form>
-    <br>
-    <div class="result">
-        <!-- {{response | titlecase}} -->
-        <div *ngIf="process" class="loader"></div>
     </div>
 </div>

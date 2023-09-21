@@ -1,52 +1,45 @@
-@import url(flexTools.css);
-@import url(buttonTools.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url(color.css);
+@import url(flex.css);
 @import url(layout.css);
+@import url(card.css);
+@import url(button.css);
+:root {
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+}
+
 body {
     margin: 0;
-    background-color: #323232;
-    overflow-x: hidden;
+    background-color: var(--dark-black);
+    /* 
+    width: 100vw;
+    height: 100vh; */
 }
 
 h1,
 h2,
-h3,
-h4,
 p,
-a,
 label {
-    color: rgb(199, 199, 199);
+    color: var(--soft-white);
 }
 
-hr {
-    color: transparent;
-    background-color: transparent;
-    border: 2px dashed rgb(108, 108, 108);
-}
-
-
-/***/
-
-.card {
-    /* width: 100%; */
-    display: block;
-    border: 4px #949494 solid;
-    border-radius: 15px;
-    box-shadow: 1px black;
-    background-color: rgb(234 234 234);
-    padding: 5px;
-    margin: 5px;
-    max-width: 500px;
-}
-
-.card>* {
-    /* margin: 5px; */
-    padding: 10px 20px;
-    color: black;
-}
-
-.text-align-center {
+h1,
+h2 {
     text-align: center;
 }
+
+h2 {
+    /* padding: 0px; */
+    margin: 3px;
+}
+
+
+/* .challenges {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+} */
 
 .loader {
     z-index: 1;

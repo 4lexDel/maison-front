@@ -1,0 +1,16 @@
+:root {
+    --soft-black: #333333;
+    --medium-black: #242424;
+    --dark-black: #1f1f1f;
+    --soft-white: #eeeeee;
+    --grey: #4e4e4e;
+    --soft-primary: rgb(107, 107, 212);
+    --primary: rgb(73, 73, 212);
+    --hard-primary: rgb(47, 47, 211);
+    --soft-secondary: rgb(108, 200, 103);
+    --secondary: rgb(57, 180, 51);
+    --hard-secondary: rgb(20, 142, 14);
+    --soft-danger: rgb(187, 86, 86);
+    --danger: rgb(180, 51, 51);
+    --hard-danger: rgb(169, 22, 22);
+}

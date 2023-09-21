@@ -5,12 +5,19 @@
 
     <div class="flex-container">
         <div class="card" *ngIf="challenge$ | async as challenge else loading">
-            <h2>{{challenge.title}}</h2>
-            <p>{{challenge.description}}</p>
-            <p>Récompense : {{challenge.award}}</p>
-            <p>Date d'expiration : {{challenge.expiration | date:'M/d/yy, h:mm a'}}</p>
-            <div class="flex-row">
-                <button class="green-button" (click)="sendProof(challenge.idChallenge)">Send Proof</button>
+            <div class="card-title">
+                <h2>{{challenge.title}}</h2>
+                <h2>|</h2>
+                <h2>{{challenge.award}} pts</h2>
+            </div>
+            <div class="card-content">
+                <p>{{challenge.description}}</p>
+            </div>
+            <div class="card-footer">
+                <p>Expiration : {{challenge.expiration | date:'dd/MM/yy, h:mm a'}}</p>
+            </div>
+            <div class="card-footer p-2">
+                <button class="secondary-button" (click)="sendProof(challenge.idChallenge)">Send Proof</button>
             </div>
         </div>
         <br>

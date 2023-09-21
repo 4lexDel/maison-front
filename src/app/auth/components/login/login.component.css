@@ -1,10 +1,13 @@
-.form-card {
+.card {
+    max-width: 800px;
+}
+
+
+/* .form-card {
     box-sizing: border-box;
     width: 50%;
     margin: 20px auto;
-    /*padding: 10px 30px;
-    box-shadow: lightgray 4px 4px 20px; */
-    /* display: block; */
+
     border: 4px #949494 solid;
     border-radius: 15px;
     box-shadow: 1px black;
@@ -36,4 +39,4 @@ textarea {
 button {
     display: block;
     margin: 20px auto;
-}
+} */
