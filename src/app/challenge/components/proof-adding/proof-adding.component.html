@@ -1,53 +1,45 @@
 <app-back-button></app-back-button>
-<div class="form-card flex-column justify-content-around">
-    <div class="flex-row justify-content-center">
-        <h1 class="text-align-center">Envoyer une preuve</h1>
-    </div>
 
-    <div class="text-align-center">
-        <h2 *ngIf="(challenge$ | async) as challenge">{{ challenge.title }}</h2>
-    </div>
+<div class="flex-column m-5 align-items-center">
+    <h1>Send proof</h1>
+    <div class="card">
+        <div class="card-title">
+            <h2 *ngIf="(challenge$ | async) as challenge">{{ challenge.title }}</h2>
+        </div>
+        <form [formGroup]="createProofForm">
+            <div class="form-group card-content P-4">
+                <div class="flex-row">
+                    <label for="imageInput" class="custom-file-upload">Select image(s)</label>
 
-    <form [formGroup]="createProofForm" class="flex-column justify-content-around">
-        <div class="form-group">
-            <label for="imageInput">Image(s)</label>
-
-            <div>
-                <div class="image-input">
-                    <input type="file" #imageUpload accept="image/*" multiple formControlName="proofImg" (change)="onImageUploadChange($event)">
-                    <label for="image-upload">
-                        <!-- <span class="label-text">Sélectionner une image</span> -->
-                    </label>
+                    <input type="file" id="imageInput" (change)="onFileSelected($event)" accept="image/*" title="&nbsp;" multiple formControlName="proofImg">
+                    <div class="image-container" [style.max-height.px]="maxHeight">
+                        <img *ngFor="let image of selectedImages" [src]="image" alt="Selected Image">
+                    </div>
                 </div>
-                <div class="image-preview-container">
-                    <div id="image-preview"></div>
-                </div>
-                <!-- <button (click)="removeAllImages()">Supprimer tout</button> -->
             </div>
-        </div>
-        <div class="form-group">
-            <label for="proofDescription">Description</label>
-            <input type="text" id="proofDescription" formControlName="description">
-        </div>
-        <div class="form-group">
-            <label for="challengerName">Prénom</label>
-            <input type="text" id="challengerName" formControlName="challengerName">
-        </div>
-        <div class="form-group">
-            <label for="house">Maison</label>
-            <select name="house" (change)="onHouseChange($event)">
+            <div class="form-group card-content P-4">
+                <label for="proofDescription">Description</label>
+                <input type="text" id="proofDescription" formControlName="description">
+            </div>
+            <div class="form-group card-content P-4">
+                <label for="challengerName">Prénom</label>
+                <input type="text" id="challengerName" formControlName="challengerName">
+            </div>
+            <div class="form-group card-content P-4">
+                <label for="house">Maison</label>
+                <select name="house" (change)="onHouseChange($event)">
                 <option value="default" selected disabled>Sélectionnez une maison</option>
                 <option *ngFor="let house of houseList$ | async" [value]="house.idHouse">{{ house.title }}</option>
             </select>
-        </div>
+            </div>
 
-        <div class="action-buttons">
-            <button type="button" class="update-button" [ngClass]="{'btn-disabled': !createProofForm.valid}" (click)="onSubmitForm()">Send Proof</button>
+            <div class="card-footer p-2">
+                <button type="button" class="primary-button" [ngClass]="{'btn-disabled': !createProofForm.valid}" (click)="onSubmitForm()">Send Proof</button>
+            </div>
+        </form>
+        <div class="result">
+            <!-- {{response | titlecase}} -->
+            <div *ngIf="process" class="loader"></div>
         </div>
-    </form>
-    <br>
-    <div class="result">
-        <!-- {{response | titlecase}} -->
-        <div *ngIf="process" class="loader"></div>
     </div>
 </div>

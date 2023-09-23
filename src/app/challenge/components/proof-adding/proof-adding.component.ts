@@ -23,66 +23,47 @@ export class ProofAddingComponent implements OnInit {
 
   houseList$!: Observable<House[]>;
 
-  @ViewChild('imageUpload', { static: false }) imageUpload: ElementRef = new ElementRef({});
-  imgReader:FileReader = new FileReader();
+  selectedImages: string[] = [];
+  maxHeight: number = 300; // Définissez la hauteur maximale souhaitée en pixels
 
-  onImageUploadChange(event: Event) {
-    console.log("change");
-    
-    const previewContainer = document.getElementById('image-preview');
+  onFileSelected(event: any) {
+    const files: FileList = event.target.files;
+    const maxFileSize = 8 * 1024 * 1024; // 8 Mo en octets
+    let totalFileSize = 0;
+    const imageBlobs: Blob[] = [];
 
-    if (previewContainer) {
-      previewContainer.innerHTML = '';
+    if (files && files.length > 0) {
+      this.selectedImages = []; // Réinitialisez la liste des images sélectionnées
 
-      const files = (event.target as HTMLInputElement).files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
 
-      if (files) {
-        for (let i = 0; i < files.length; i++) {
-          const file = files[i];
+        // Vérifiez si le fichier est une image
+        if (file.type.startsWith('image/')) {
+          totalFileSize += file.size; // Ajoutez la taille du fichier à la somme
 
-          this.imgReader.onload = (e: any) => {
-            const imageElement = document.createElement('img');
-            imageElement.src = e.target.result;
-            imageElement.classList.add('preview-image');
+          // Vérifiez si la somme des tailles est inférieure ou égale à la limite
+          if (totalFileSize <= maxFileSize) {
+            imageBlobs.push(file); // Ajoutez le Blob du fichier à la liste des imageBlobs
+            const reader = new FileReader();
 
-            // Redimensionner l'image
-            imageElement.onload = () => {
-              //console.log("draw");
-              
-              const canvas = document.createElement('canvas');
-              const ctx = canvas.getContext('2d');
-
-              const { width, height } = this.calculateAspectRatioFit(imageElement.width, imageElement.height, 200, 200);
-              canvas.width = width;
-              canvas.height = height;
-
-              ctx?.drawImage(imageElement, 0, 0, width, height);
-
-              imageElement.src = canvas.toDataURL(); // Remplace l'URL de l'image par l'image redimensionnée
-
-              previewContainer.appendChild(imageElement);
+            reader.onload = (e: any) => {
+              // Ajoutez l'URL de l'image à la liste des images sélectionnées (facultatif)
+              this.selectedImages.push(e.target.result);
             };
 
-            previewContainer.appendChild(imageElement);
-          };
-
-          this.imgReader.readAsDataURL(file);
+            reader.readAsDataURL(file);
+          } else {
+            // Affichez un message d'erreur si la somme des tailles dépasse la limite
+            console.log(`La taille totale des images dépasse la limite de 8 Mo.`);
+            break; // Arrêtez le traitement des fichiers restants
+          }
+        } else {
+          // Affichez un message d'erreur si le fichier n'est pas une image
+          console.log(`Le fichier ${file.name} n'est pas une image.`);
         }
       }
     }
-  }
-
-  removeAllImages() {
-    const previewContainer = document.getElementById('image-preview');
-    if(previewContainer) previewContainer.innerHTML = ''; 
-
-    this.imgReader = new FileReader();
-  }
-  
-
-  calculateAspectRatioFit(srcWidth:number, srcHeight:number, maxWidth:number, maxHeight:number) {
-    const ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
-    return { width: srcWidth * ratio, height: srcHeight * ratio };
   }
 
   constructor(private router: Router, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private challengeService: ChallengeService, private houseService: HouseService, private proofService: ProofService) { }

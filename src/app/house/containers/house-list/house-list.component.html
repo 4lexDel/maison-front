@@ -25,13 +25,13 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="houseList$ | async else loading"></div>
-
-        <ng-template #loading>
-            <div class="loader"></div>
-            <p>Loading...</p>
-        </ng-template>
     </div>
+    <div *ngIf="houseList$ | async else loading"></div>
+
+    <ng-template #loading>
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </ng-template>
 </div>
 
 <app-confirmation-popup #confirmationPopup [textPopup]="'Confirmation de la suppression ?'" (confirmed)="onDeleteConfirmation($event)"></app-confirmation-popup>

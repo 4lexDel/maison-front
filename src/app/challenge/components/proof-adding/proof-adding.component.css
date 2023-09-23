@@ -1,0 +1,41 @@
+/* mon-formulaire.component.css */
+
+
+/* Style de la div contenant les images */
+
+.image-container {
+    display: flex;
+    justify-content: start;
+    /* flex-wrap: wrap; */
+    /* gap: 10px; */
+    overflow: auto;
+    max-height: 300px;
+}
+
+
+/* Style des images individuelles */
+
+.image-container img {
+    max-width: 100%;
+    /* Hauteur maximale de l'image */
+    height: auto;
+    /* Ajustez automatiquement la largeur en fonction de la hauteur */
+    border: 1px solid #ccc;
+    /* Ajouter une bordure autour des images */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* Ajouter une ombre légère */
+}
+
+input[type="file"] {
+    color: transparent;
+    display: none;
+}
+
+.custom-file-upload {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px dashed;
+    border-color: var(--soft-white);
+    text-align: center;
+}

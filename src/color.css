@@ -13,4 +13,8 @@
     --soft-danger: rgb(187, 86, 86);
     --danger: rgb(180, 51, 51);
     --hard-danger: rgb(169, 22, 22);
+    --small-size: 570px;
+    --smooth-orange: #ad7a0a;
+    --deep-red: #691c1c;
+    --deep-blue: #1c2169;
 }
