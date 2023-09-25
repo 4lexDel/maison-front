@@ -7,6 +7,7 @@ import { HouseService } from 'src/app/house/services/house.service';
 import { ProofService } from '../../services/proof.service';
 import { Challenge } from 'src/app/core/models/challenge.model';
 import { House } from 'src/app/core/models/house.model';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-proof-adding',
@@ -23,20 +24,23 @@ export class ProofAddingComponent implements OnInit {
 
   houseList$!: Observable<House[]>;
 
+  imageBlobs: Blob[] = [];
+
   selectedImages: string[] = [];
   maxHeight: number = 300; // Définissez la hauteur maximale souhaitée en pixels
 
+  files!: FileList;
+
   onFileSelected(event: any) {
-    const files: FileList = event.target.files;
+    this.files = event.target.files;
     const maxFileSize = 8 * 1024 * 1024; // 8 Mo en octets
     let totalFileSize = 0;
-    const imageBlobs: Blob[] = [];
 
-    if (files && files.length > 0) {
+    if (this.files && this.files.length > 0) {
       this.selectedImages = []; // Réinitialisez la liste des images sélectionnées
 
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
+      for (let i = 0; i < this.files.length; i++) {
+        const file = this.files[i];
 
         // Vérifiez si le fichier est une image
         if (file.type.startsWith('image/')) {
@@ -44,7 +48,8 @@ export class ProofAddingComponent implements OnInit {
 
           // Vérifiez si la somme des tailles est inférieure ou égale à la limite
           if (totalFileSize <= maxFileSize) {
-            imageBlobs.push(file); // Ajoutez le Blob du fichier à la liste des imageBlobs
+            const blob = new Blob([file], { type: file.type });
+            this.imageBlobs.push(blob); // Ajoutez le Blob du fichier à la liste des imageBlobs
             const reader = new FileReader();
 
             reader.onload = (e: any) => {
@@ -93,14 +98,43 @@ export class ProofAddingComponent implements OnInit {
   async onSubmitForm() {
     if (this.createProofForm.valid) {
       this.process = true;
-      let newChallenge = this.createProofForm.value;
 
-      console.log(newChallenge);
+      let newProof = this.createProofForm.value;
 
-      let newHouseReceive = await lastValueFrom(this.challengeService.updateChallenge(newChallenge, this.challengeId));
-      this.router.navigateByUrl(`/challenges/${this.challengeId}`);
+      newProof = {
+        ...newProof,
+        proofImg: this.files[0],    // only one
+        idChallenge: this.challengeId
+      }
+
+      console.log(newProof);
+
+      const formData = new FormData();
+
+      // Ajoutez les valeurs du formulaire à l'objet FormData
+      Object.keys(newProof).forEach(key => {
+        formData.append(key, newProof[key]);
+      });
+      
+      console.log(formData);
+      
+      // const binaryImg = await this.blobToUint8Array(this.imageBlobs[0]);
+
+      // newProof = {
+      //   ...newProof,
+      //   proofImg: binaryImg,    // only one
+      //   idChallenge: this.challengeId
+      // }
+
+      let newProofReceive = await lastValueFrom(this.challengeService.addProof(formData));
+      // this.router.navigateByUrl(`/challenges/`);
 
       this.process = false;
     }
+  }
+
+  async blobToUint8Array(blob: Blob) {
+    const arrayBuffer = await blob.arrayBuffer();
+    return new Uint8Array(arrayBuffer);
   }
 }

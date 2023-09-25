@@ -1,0 +1,32 @@
+/* .detail-proof {
+    width: max-content;
+} */
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.list-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 60vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .list-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        overflow-x: auto;
+        width: 100%;
+    }
+}

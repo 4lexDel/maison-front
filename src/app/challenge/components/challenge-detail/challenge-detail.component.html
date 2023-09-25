@@ -14,7 +14,7 @@
                 <p>{{challenge.description}}</p>
             </div>
             <div class="card-footer">
-                <p>Expiration : {{challenge.expiration | date:'dd/MM/yy, h:mm a'}}</p>
+                <p>Expiration : {{challenge.expiration | date:'dd/MM/yy, hh:mm'}}</p>
             </div>
             <div class="card-footer p-2">
                 <button class="secondary-button" (click)="sendProof(challenge.idChallenge)">Send Proof</button>

@@ -12,6 +12,7 @@ import { SendProofComponent } from './components/send-proof/send-proof.component
 import { ChallengeAddingComponent } from './components/challenge-adding/challenge-adding.component';
 import { ProofAddingComponent } from './components/proof-adding/proof-adding.component';
 import { TestImgInputComponent } from './components/test-img-input/test-img-input.component';
+import { ProofListComponent } from './containers/proof-list/proof-list.component';
 
 
 
@@ -23,7 +24,8 @@ import { TestImgInputComponent } from './components/test-img-input/test-img-inpu
     SendProofComponent,
     ChallengeAddingComponent,
     ProofAddingComponent,
-    TestImgInputComponent
+    TestImgInputComponent,
+    ProofListComponent
   ],
   imports: [
     CommonModule,

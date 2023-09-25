@@ -29,6 +29,10 @@ export class ChallengeListComponent implements OnInit {
     this.router.navigateByUrl(`/challenges/add`);
   }
 
+  checkProofs(){
+    this.router.navigateByUrl(`/challenges/proofs`);
+  }
+
   updateChallengeList(): void {
     this.challengeList$ = this.challengeService.getChallengeList();
   }

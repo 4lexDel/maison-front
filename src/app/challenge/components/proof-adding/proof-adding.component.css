@@ -4,12 +4,14 @@
 /* Style de la div contenant les images */
 
 .image-container {
+    margin: 5px;
     display: flex;
     justify-content: start;
     /* flex-wrap: wrap; */
     /* gap: 10px; */
-    overflow: auto;
+    overflow: hidden;
     max-height: 300px;
+    /* border: 1px solid var(--grey); */
 }
 
 
@@ -38,4 +40,5 @@ input[type="file"] {
     border: 1px dashed;
     border-color: var(--soft-white);
     text-align: center;
+    width: max-content;
 }

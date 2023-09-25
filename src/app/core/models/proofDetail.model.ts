@@ -1,4 +1,4 @@
-export class Proof{
+export class ProofDetail{
     constructor(
         public idProof:number,//----------------------def
         public dateProof:Date,//----------------------def
@@ -7,6 +7,8 @@ export class Proof{
         public accepted:number,//----------------------def
         public challengerName:string,//----------------------Input
         public idHouse:number,//----------------------Input
+        public houseTitle:string,//----------------------Input
         public idChallenge:number,//----------------obvious
+        public challengeTitle:string,//----------------------Input
         ){}
     }

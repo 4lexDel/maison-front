@@ -2,6 +2,7 @@
     <div class="flex-row justify-content-center">
         <h1 class="px-4">Challenges</h1>
         <button *ngIf="isAdmin" class="add-button px-3" (click)="addChallenge()">+</button>
+        <button *ngIf="isAdmin" class="primary-button px-3" (click)="checkProofs()">Check proofs</button>
     </div>
     <div class="flex-row justify-content-center gap-10">
         <div class="card" *ngFor="let challenge of challengeList$ | async">
@@ -14,7 +15,7 @@
                 <p>{{challenge.description}}</p>
             </div>
             <div class="card-footer">
-                <p>Expiration : {{challenge.expiration | date:'dd/MM/yy, h:mm a'}}</p>
+                <p>Expiration : {{challenge.expiration | date:'dd/MM/yyyy, hh:mm'}}</p>
             </div>
             <div class="card-footer p-2">
                 <div class="flex-row justify-content-between">

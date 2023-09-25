@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../core/services/auth.service';
 import { Challenge } from 'src/app/core/models/challenge.model';
+import { ProofDetail } from 'src/app/core/models/proofDetail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,16 @@ export class ChallengeService {
 
   deleteChallenge(challengeId:number): Observable<any>{
     return this.http.delete<any>(`${this.domainName}/challenges/${challengeId}`);
+  }
+
+  getProofList(): Observable<ProofDetail[]>{
+    return this.http.get<ProofDetail[]>(`${this.domainName}/proofs`);
+  }
+
+  addProof(createdProof: any): Observable<any>{
+    console.log("HTTP REQUEST");
+    console.log(createdProof);
+    
+    return this.http.post(`${this.domainName}/proofs/`, createdProof);/*, options*/
   }
 }
