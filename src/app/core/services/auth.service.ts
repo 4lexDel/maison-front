@@ -9,8 +9,7 @@ import { Router } from '@angular/router';
     providedIn: 'root'
 })
 export class AuthService {          //Voir ==> https://openclassrooms.com/fr/courses/7471271-completez-vos-connaissances-sur-angular/7549541-securisez-vos-requetes
-    // domainName: string = "https://todo-api.delalex.repl.co/api";
-    domainName: string = "http://localhost:5000/api";
+    domainName: string = "/api";
     private token = '';
     private idUser = -1;
 
