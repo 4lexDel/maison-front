@@ -1,10 +1,20 @@
 <div *ngIf="isVisible">
     <div class="confirmation-dialog-overlay"></div>
-    <div class="confirmation-dialog">
+    <!-- <div class="confirmation-dialog">
         <p>{{ textPopup }}</p>
         <div class="flex-row justify-content-around">
             <button (click)="confirm()" class="ok-button">Confirmer</button>
             <button (click)="cancel()" class="cancel-button">Annuler</button>
+        </div>
+    </div> -->
+
+    <div class="card confirmation-dialog">
+        <div class="card-content">
+            <p>{{ textPopup }}</p>
+        </div>
+        <div class="card-footer">
+            <button (click)="confirm()" class="danger-button">Confirm</button>
+            <button (click)="cancel()" class="secondary-button">Cancel</button>
         </div>
     </div>
 </div>

@@ -6,16 +6,6 @@ header {
     background-color: var(--smooth-orange);
 }
 
-@media (max-width: 600px) {
-    header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: auto;
-        justify-content: center;
-    }
-}
-
 header a {
     font-size: 23px;
     color: var(--soft-white);
@@ -27,11 +17,23 @@ header a:hover {
 }
 
 .links {
+    display: flex;
+    flex-wrap: wrap;
     border-bottom: 1px solid var(--soft-white);
-    width: max-content;
+    /* width: max-content; */
 }
 
 .active {
     font-weight: 900;
     text-decoration: underline !important;
+}
+
+@media (max-width: 600px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        justify-content: center;
+    }
 }
