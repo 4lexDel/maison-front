@@ -3,30 +3,65 @@
 } */
 
 .main {
+    --width-card-container: 270px;
+    --width-card: 230px;
+    --height-card-container: 160px;
+    --height-card: 120px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    gap: 10px;
+    height: 500px;
+}
+
+.selected-proof {
+    border: 3px #949494 solid;
+}
+
+.card {
+    max-width: auto;
+    width: auto;
 }
 
 .list-card {
+    flex: 1 1 var(--width-card-container);
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    height: 60vh;
+    overflow-x: hidden;
     overflow-y: auto;
+    gap: 10px;
+    cursor: pointer;
 }
 
-@media (max-width: 600px) {
+.list-card .card {
+    margin-top: 14px;
+    margin-inline: auto;
+    width: var(--width-card);
+    height: var(--height-card);
+    flex-shrink: 0;
+}
+
+.detail-proof {
+    flex: 99999;
+}
+
+@media (max-width: 750px) {
     .main {
-        display: flex;
         flex-direction: column;
-        align-items: center;
     }
     .list-card {
+        flex: 1 1 var(--height-card-container);
         display: flex;
         flex-direction: row;
-        justify-content: start;
         overflow-x: auto;
-        width: 100%;
+        overflow-y: hidden;
+    }
+    .list-card .card {
+        margin-left: 14px;
+        margin-block: auto;
+        width: var(--width-card);
+        height: var(--height-card);
+    }
+    .detail-proof {
+        flex: 99999 1;
     }
 }

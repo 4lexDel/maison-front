@@ -1,24 +1,31 @@
 <app-back-button></app-back-button>
 
-<div class="main gap-10 m-3" style="flex-wrap: nowrap; overflow-x: auto;">
-    <div class="list-card gap-10">
-        <div class="card" *ngFor="let proof of proofList$ | async" style="max-width: none; width: 250px;">
-            <div class="card-title">
-                <h4>{{ proof.challengeTitle }}</h4>
-                <h4>|</h4>
-                <h4>{{ proof.dateProof | date:'dd/MM/yyyy, hh:mm:ss' }}</h4>
+<div class="main m-3">
+    <div class="card list-card">
+        <div class="card" *ngFor="let proof of proofList$ | async" (click)="selectProof(proof)" [ngClass]="{'selected-proof':isProofSelected(proof)}">
+            <div class="card-title flex-column justify-content-start align-items-center">
+                <h4 class="m-1">{{ proof.challengeTitle }}</h4>
+                <!-- <h4>|</h4> -->
+                <h4 class="m-1">{{ proof.dateProof | date:'dd/MM/yyyy - hh:mm:ss' }}</h4>
             </div>
-            <div class="card-content">
-                <p>From : {{ proof.challengerName }} ({{ proof.houseTitle }})</p>
-            </div>
+            <p class="p-2">From : {{ proof.challengerName }} ({{ proof.houseTitle }})</p>
         </div>
     </div>
-    <div class="card detail-proof" style="display:bloc; width: 100%">
-        <div class="card-title">
-            <h2>Title</h2>
+    <div class="card detail-proof">
+        <div class="card-title" *ngIf="proofSelected; else noData">
+            <h2>{{ proofSelected.dateProof | date:'dd/MM/yyyy - hh:mm:ss' }} : {{ proofSelected.challengeTitle }}</h2>
         </div>
-        <div class="card-content">
-            <p>DATA</p>
+
+        <ng-template #noData>
+            <div class="card-title">
+                <h2>No proof selected...</h2>
+            </div>
+        </ng-template>
+        <div class="card-title" *ngIf="!proofSelected">
+            <h2>No proof selected</h2>
+        </div>
+        <div class="card-content" *ngIf="proofSelected">
+            <img [src]="domainName+'/proofs-img/'+proofSelected.proofImg" alt="">
         </div>
         <div class="card-footer">
             <button class="secondary-button">Accept</button>

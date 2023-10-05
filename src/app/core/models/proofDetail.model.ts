@@ -2,7 +2,7 @@ export class ProofDetail{
     constructor(
         public idProof:number,//----------------------def
         public dateProof:Date,//----------------------def
-        public proofImg:any,//----------------------Input
+        public proofImg:string,//----------------------Input
         public description:string,//----------------------Input
         public accepted:number,//----------------------def
         public challengerName:string,//----------------------Input
