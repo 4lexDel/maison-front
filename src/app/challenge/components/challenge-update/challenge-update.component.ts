@@ -29,6 +29,8 @@ export class ChallengeUpdateComponent implements OnInit {
 
     let challengeData = await lastValueFrom(this.challengeService.getChallengeByID(this.challengeId));
 
+    challengeData.expiration = challengeData.expiration.split("T")[0];// parse date
+    
     this.updateChallengeForm.patchValue(challengeData);
   }
 
