@@ -6,12 +6,10 @@ import { ChallengeRoutingModule } from './challenge-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ChallengeUpdateComponent } from './components/challenge-update/challenge-update.component';
-import { SendProofComponent } from './components/send-proof/send-proof.component';
 import { ChallengeAddingComponent } from './components/challenge-adding/challenge-adding.component';
 import { ProofAddingComponent } from './components/proof-adding/proof-adding.component';
-import { TestImgInputComponent } from './components/test-img-input/test-img-input.component';
 import { ProofListComponent } from './containers/proof-list/proof-list.component';
 
 
@@ -21,10 +19,8 @@ import { ProofListComponent } from './containers/proof-list/proof-list.component
     ChallengeDetailComponent,
     ChallengeListComponent,
     ChallengeUpdateComponent,
-    SendProofComponent,
     ChallengeAddingComponent,
     ProofAddingComponent,
-    TestImgInputComponent,
     ProofListComponent
   ],
   imports: [

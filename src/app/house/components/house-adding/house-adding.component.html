@@ -11,15 +11,15 @@
         <form [formGroup]="createHouseForm">
             <div class="form-group card-content P-3">
                 <label for="houseName">House</label>
-                <input type="text" id="houseName" formControlName="title">
+                <input type="text" id="houseName" formControlName="title" maxlength="50">
             </div>
             <div class="form-group card-content P-3">
                 <label for="houseScore">Score</label>
-                <input type="number" id="houseScore" formControlName="score">
+                <input type="number" id="houseScore" formControlName="score" min="-99999" max="99999">
             </div>
             <div class="form-group card-content P-3">
                 <label for="houseDescription">Description</label>
-                <input type="text" id="houseDescription" formControlName="description">
+                <input type="text" id="houseDescription" formControlName="description" maxlength="150">
             </div>
 
             <div class="card-footer">

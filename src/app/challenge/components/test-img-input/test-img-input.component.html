@@ -1,6 +1,0 @@
-<h1>Test img input</h1>
-
-<input type="file" id="imageInput" (change)="onFileSelected($event)" accept="image/*" multiple>
-<div class="image-container" [style.max-height.px]="maxHeight">
-    <img *ngFor="let image of selectedImages" [src]="image" alt="Selected Image">
-</div>
