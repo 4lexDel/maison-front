@@ -22,7 +22,7 @@ export class HouseListComponent implements OnInit {
   constructor(private houseService: HouseService, private router: Router) { }
 
   ngOnInit(): void {
-    this.updateHouseList();
+    this.refreshHouseList();
   }
 
   addHouse(): void {
@@ -30,7 +30,7 @@ export class HouseListComponent implements OnInit {
     this.router.navigateByUrl(`/houses/add`);
   }
 
-  updateHouseList(): void {
+  refreshHouseList(): void {
     this.houseList$ = this.houseService.getHouseList();
   }
 
@@ -50,7 +50,7 @@ export class HouseListComponent implements OnInit {
   onDeleteConfirmation(confirmed: boolean) {
     if (confirmed) {
       this.houseService.deleteHouse(this.houseToDelete).subscribe((res) => {
-        this.updateHouseList();
+        this.refreshHouseList();
       });
     }
   }

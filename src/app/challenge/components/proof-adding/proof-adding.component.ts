@@ -117,7 +117,7 @@ export class ProofAddingComponent implements OnInit {
         formData.append(key, newProof[key]);
       });
       
-      let response = await this.challengeService.addProof(formData);
+      let response = await this.proofService.addProof(formData);
       
       this.process = false;
 

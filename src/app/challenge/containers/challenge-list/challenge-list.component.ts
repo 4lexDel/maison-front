@@ -28,7 +28,7 @@ export class ChallengeListComponent implements OnInit {
 
     if(!this.isAdmin) this.params = this.params.set('type', 'active');
 
-    this.updateChallengeList();
+    this.refreshChallengeList();
   }
 
   addChallenge(){
@@ -39,7 +39,7 @@ export class ChallengeListComponent implements OnInit {
     this.router.navigateByUrl(`/challenges/proofs`);
   }
 
-  updateChallengeList(): void {
+  refreshChallengeList(): void {
     this.challengeList$ = this.challengeService.getChallengeList(this.params);
   }
 
@@ -59,7 +59,7 @@ export class ChallengeListComponent implements OnInit {
   onDeleteConfirmation(confirmed: boolean) {
     if (confirmed) {
       this.challengeService.deleteChallenge(this.challengeToDelete).subscribe((res) => {
-        this.updateChallengeList();
+        this.refreshChallengeList();
       });
     }
   }

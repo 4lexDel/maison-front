@@ -3,53 +3,34 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AuthService } from '../../core/services/auth.service';
 import { Challenge } from 'src/app/core/models/challenge.model';
-import { ProofDetail } from 'src/app/core/models/proofDetail.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChallengeService {
-  domainName!:string; 
+  domainName!: string;
 
-  constructor(private http: HttpClient, private authService: AuthService) { 
+  constructor(private http: HttpClient, private authService: AuthService) {
     this.domainName = authService.getDomainName();
   }
 
-  getChallengeList(httpParams: HttpParams = new HttpParams()): Observable<Challenge[]>{
-    return this.http.get<Challenge[]>(`${this.domainName}/challenges`, {params:httpParams});
+  getChallengeList(httpParams: HttpParams = new HttpParams()): Observable<Challenge[]> {
+    return this.http.get<Challenge[]>(`${this.domainName}/challenges`, { params: httpParams });
   }
 
-  getChallengeByID(id:number): Observable<Challenge>{
+  getChallengeByID(id: number): Observable<Challenge> {
     return this.http.get<Challenge>(`${this.domainName}/challenges/${id}`);
   }
 
-  addChallenge(createdChallenge: Challenge): Observable<Challenge>{
+  addChallenge(createdChallenge: Challenge): Observable<Challenge> {
     return this.http.post<Challenge>(`${this.domainName}/challenges/`, createdChallenge);
   }
 
-  updateChallenge(updatedChallenge: Challenge, challengeId:number): Observable<Challenge>{
+  updateChallenge(updatedChallenge: Challenge, challengeId: number): Observable<Challenge> {
     return this.http.put<Challenge>(`${this.domainName}/challenges/${challengeId}`, updatedChallenge)
   }
 
-  deleteChallenge(challengeId:number): Observable<any>{
+  deleteChallenge(challengeId: number): Observable<any> {
     return this.http.delete<any>(`${this.domainName}/challenges/${challengeId}`);
-  }
-
-  getProofList(): Observable<ProofDetail[]>{
-    return this.http.get<ProofDetail[]>(`${this.domainName}/proofs`);
-  }
-
-  addProof(createdProof: any): Promise<string>{
-      return new Promise(async(resolve, reject) => {
-      var source$ = this.http.post(`${this.domainName}/proofs/`, createdProof).subscribe(
-          (response) => {
-              resolve("1");
-          },
-          (err) => {
-              console.log(err.error.error);
-              resolve(err.error.error);
-          }
-      );
-  });
   }
 }

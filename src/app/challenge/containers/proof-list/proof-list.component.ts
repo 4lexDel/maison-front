@@ -4,6 +4,7 @@ import { Proof } from 'src/app/core/models/proof.model';
 import { Observable, lastValueFrom } from 'rxjs';
 import { ProofDetail } from 'src/app/core/models/proofDetail.model';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { ProofService } from '../../services/proof.service';
 
 @Component({
   selector: 'app-proof-list',
@@ -12,19 +13,19 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class ProofListComponent {
   proofList$!:Observable<ProofDetail[]>;
-  proofSelected!:ProofDetail;
+  proofSelected!:ProofDetail | null;
   domainName!:string;
 
-  constructor(private challengeService: ChallengeService, authService: AuthService) { 
+  constructor(private proofService: ProofService, authService: AuthService) { 
     this.domainName = authService.getDomainName();
   }
 
   ngOnInit(): void {
-    this.updateProofList();
+    this.refreshProofList();
   }
 
-  async updateProofList(): Promise<void> {
-    this.proofList$ = this.challengeService.getProofList();
+  async refreshProofList(): Promise<void> {
+    this.proofList$ = this.proofService.getProofList();
   }
 
   selectProof(proof:ProofDetail){
@@ -32,8 +33,24 @@ export class ProofListComponent {
   }
 
   isProofSelected(proof:ProofDetail){    
-    if(! this.proofSelected) return false;
+    if(!this.proofSelected) return false;
     
     return proof.idProof==this.proofSelected.idProof;
+  }
+
+  async acceptProof(){
+    if(this.proofSelected){
+      await lastValueFrom(this.proofService.acceptProof(this.proofSelected.idProof));
+      this.refreshProofList();
+      this.proofSelected = null;
+    }
+  }
+
+  async rejectProof(){
+    if(this.proofSelected){
+      await lastValueFrom(this.proofService.rejectProof(this.proofSelected.idProof));
+      this.refreshProofList();
+      this.proofSelected = null;
+    }  
   }
 }
