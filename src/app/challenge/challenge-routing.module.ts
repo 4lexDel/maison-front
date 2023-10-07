@@ -6,7 +6,6 @@ import { ChallengeUpdateComponent } from './components/challenge-update/challeng
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { ChallengeAddingComponent } from './components/challenge-adding/challenge-adding.component';
 import { ProofAddingComponent } from './components/proof-adding/proof-adding.component';
-import { TestImgInputComponent } from './components/test-img-input/test-img-input.component';
 import { ProofListComponent } from './containers/proof-list/proof-list.component';
 
 const routes: Routes = [
