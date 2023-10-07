@@ -1,5 +1,6 @@
 <app-back-button></app-back-button>
 
+<h1>Proofs</h1>
 <div class="main m-3">
     <div class="card list-card">
         <div class="card" *ngFor="let proof of proofList$ | async" (click)="selectProof(proof)" [ngClass]="{'selected-proof':isProofSelected(proof)}">
@@ -13,7 +14,8 @@
     </div>
     <div class="card detail-proof">
         <div class="card-title" *ngIf="proofSelected; else noData">
-            <h2>{{ proofSelected.dateProof | date:'dd/MM/yyyy - hh:mm:ss' }} : {{ proofSelected.challengeTitle }}</h2>
+            <h2>{{ proofSelected.dateProof | date:'dd/MM/yyyy - hh:mm:ss' }} : <span class="info-key pointer" [routerLink]="'/challenges/'+proofSelected.idChallenge">{{ proofSelected.challengeTitle }}</span></h2>
+            <!-- <h2 [routerLink]="'challenges/'+proofSelected.idChallenge">{{ proofSelected.challengeTitle }}</h2> -->
         </div>
 
         <ng-template #noData>
@@ -21,11 +23,14 @@
                 <h2>No proof selected...</h2>
             </div>
         </ng-template>
-        <div class="card-title" *ngIf="!proofSelected">
-            <h2>No proof selected</h2>
-        </div>
-        <div class="card-content" *ngIf="proofSelected">
-            <img [src]="domainName+'/proofs-img/'+proofSelected.proofImg" alt="">
+
+        <div class="card-content proof-content" *ngIf="proofSelected">
+            <div class="flex-row justify-content-between">
+                <h3>From : <span class="info-key">{{ proofSelected.challengerName }}</span></h3>
+                <h3>House : <span class="info-key pointer" [routerLink]="'/houses/'+proofSelected.idHouse">{{ proofSelected.houseTitle }}</span></h3>
+            </div>
+            <img id="proof-img" [src]="domainName+'/proofs-img/'+proofSelected.proofImg" alt="">
+            <p class="p-2 description">Description : {{ proofSelected.description }}</p>
         </div>
         <div class="card-footer">
             <button class="secondary-button">Accept</button>
