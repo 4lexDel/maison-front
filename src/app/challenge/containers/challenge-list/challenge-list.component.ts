@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Challenge } from 'src/app/core/models/challenge.model';
 import { Observable } from 'rxjs';
 import { ConfirmationPopupComponent } from 'src/app/shared/components/confirmation-popup/confirmation-popup.component';
+import { HttpParams } from '@angular/common/http';
 
 
 @Component({
@@ -18,10 +19,15 @@ export class ChallengeListComponent implements OnInit {
 
   @ViewChild('confirmationPopup') confirmationPopup!: ConfirmationPopupComponent;
   challengeToDelete!:number;
+  params!:HttpParams;
 
   constructor(private challengeService: ChallengeService, private router: Router) { }
 
   ngOnInit(): void {
+    this.params = new HttpParams();
+
+    if(!this.isAdmin) this.params = this.params.set('type', 'active');
+
     this.updateChallengeList();
   }
 
@@ -34,7 +40,7 @@ export class ChallengeListComponent implements OnInit {
   }
 
   updateChallengeList(): void {
-    this.challengeList$ = this.challengeService.getChallengeList();
+    this.challengeList$ = this.challengeService.getChallengeList(this.params);
   }
 
   getChallengeByID(id:number){

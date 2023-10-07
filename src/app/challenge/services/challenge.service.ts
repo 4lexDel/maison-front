@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AuthService } from '../../core/services/auth.service';
 import { Challenge } from 'src/app/core/models/challenge.model';
 import { ProofDetail } from 'src/app/core/models/proofDetail.model';
@@ -15,8 +15,8 @@ export class ChallengeService {
     this.domainName = authService.getDomainName();
   }
 
-  getChallengeList(): Observable<Challenge[]>{
-    return this.http.get<Challenge[]>(`${this.domainName}/challenges`);
+  getChallengeList(httpParams: HttpParams = new HttpParams()): Observable<Challenge[]>{
+    return this.http.get<Challenge[]>(`${this.domainName}/challenges`, {params:httpParams});
   }
 
   getChallengeByID(id:number): Observable<Challenge>{
