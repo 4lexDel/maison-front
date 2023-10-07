@@ -72,6 +72,22 @@ button {
     color: var(--medium-black);
 }
 
+.white-button {
+    /* margin: 10px; */
+    border-color: var(--soft-white);
+    background-color: transparent;
+    color: var(--soft-white);
+}
+
+.white-button:hover:not(.btn-disabled) {
+    background-color: var(--soft-black);
+}
+
+.white-button:active:not(.btn-disabled) {
+    background-color: var(--soft-white);
+    color: var(--medium-black);
+}
+
 .btn-disabled {
     opacity: 0.4;
 }
