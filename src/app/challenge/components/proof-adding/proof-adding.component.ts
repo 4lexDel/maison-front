@@ -8,6 +8,7 @@ import { ProofService } from '../../services/proof.service';
 import { Challenge } from 'src/app/core/models/challenge.model';
 import { House } from 'src/app/core/models/house.model';
 import { HttpHeaders } from '@angular/common/http';
+import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 
 @Component({
   selector: 'app-proof-adding',
@@ -15,6 +16,8 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./proof-adding.component.css']
 })
 export class ProofAddingComponent implements OnInit {
+  @ViewChild("dangerAlert") dangerAlert!: AlertComponent;
+
   createProofForm!: FormGroup;
   process: boolean = false;
 
@@ -85,8 +88,6 @@ export class ProofAddingComponent implements OnInit {
 
     this.houseList$ = this.houseService.getHouseList();
     this.challenge$ = this.challengeService.getChallengeByID(this.challengeId);
-
-    //this.createProofForm.patchValue(challengeData);
   }
 
   onHouseChange($event: any) {
@@ -116,25 +117,16 @@ export class ProofAddingComponent implements OnInit {
         formData.append(key, newProof[key]);
       });
       
-      console.log(formData);
+      let response = await this.challengeService.addProof(formData);
       
-      // const binaryImg = await this.blobToUint8Array(this.imageBlobs[0]);
-
-      // newProof = {
-      //   ...newProof,
-      //   proofImg: binaryImg,    // only one
-      //   idChallenge: this.challengeId
-      // }
-
-      let newProofReceive = await lastValueFrom(this.challengeService.addProof(formData));
-      // this.router.navigateByUrl(`/challenges/`);
-
       this.process = false;
-    }
-  }
 
-  async blobToUint8Array(blob: Blob) {
-    const arrayBuffer = await blob.arrayBuffer();
-    return new Uint8Array(arrayBuffer);
+      if(response == "1"){
+        this.router.navigateByUrl(`/challenges`);
+      }
+      else{
+        this.dangerAlert.activateAlert(2, response);
+      }
+    }
   }
 }

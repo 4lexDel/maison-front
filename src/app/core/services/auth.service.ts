@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
     providedIn: 'root'
 })
 export class AuthService {          //Voir ==> https://openclassrooms.com/fr/courses/7471271-completez-vos-connaissances-sur-angular/7549541-securisez-vos-requetes
-    domainName: string = "/api";
+    domainName: string = "http://localhost:8000/api";
     private token = '';
     private idUser = -1;
 
@@ -26,7 +26,7 @@ export class AuthService {          //Voir ==> https://openclassrooms.com/fr/cou
 
     async login(informations: AuthInformation): Promise<string> {
         return new Promise(async(resolve, reject) => {
-            var source$ = this.http.post<LoginResponse>(`${this.domainName}/login`, informations).subscribe(
+            var source$ = this.http.post<LoginResponse>(`${this.domainName}/auth/login`, informations).subscribe(
                 (response) => {
                     this.token = response.token;
                     this.idUser = response.idUser;
@@ -43,7 +43,7 @@ export class AuthService {          //Voir ==> https://openclassrooms.com/fr/cou
 
     async register(informations: AuthInformation): Promise<string> {
         return new Promise(async(resolve, reject) => {
-        this.http.post<any>(`${this.domainName}/register`, informations).subscribe(
+        this.http.post<any>(`${this.domainName}/auth/register`, informations).subscribe(
             (response) => {
                 console.log(response);    
                 resolve("1");
@@ -60,7 +60,7 @@ export class AuthService {          //Voir ==> https://openclassrooms.com/fr/cou
         //console.log(this.token);
         //this.authHeader.set("Authorization", `Bearer ${this.token}`);
                
-        this.http.get(`${this.domainName}/test`).subscribe((val) => {
+        this.http.get(`${this.domainName}/auth/test`).subscribe((val) => {
             console.log(val);
         }
         );

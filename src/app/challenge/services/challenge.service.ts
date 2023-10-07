@@ -39,10 +39,17 @@ export class ChallengeService {
     return this.http.get<ProofDetail[]>(`${this.domainName}/proofs`);
   }
 
-  addProof(createdProof: any): Observable<any>{
-    console.log("HTTP REQUEST");
-    console.log(createdProof);
-    
-    return this.http.post(`${this.domainName}/proofs/`, createdProof);/*, options*/
+  addProof(createdProof: any): Promise<string>{
+      return new Promise(async(resolve, reject) => {
+      var source$ = this.http.post(`${this.domainName}/proofs/`, createdProof).subscribe(
+          (response) => {
+              resolve("1");
+          },
+          (err) => {
+              console.log(err.error.error);
+              resolve(err.error.error);
+          }
+      );
+  });
   }
 }
