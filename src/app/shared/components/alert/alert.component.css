@@ -1,15 +1,14 @@
 .alert {
     position: fixed;
-    width: 100%;
+    width: 80%;
     padding: .85rem 1.25rem;
-    ;
-    margin: 10px;
+    margin-left: 20px;
     border-radius: .25rem;
     font-size: 17px;
 }
 
 .alert-danger {
-    color: #721c24;
+    color: #580810;
     background-color: #f8d7da;
     border: 2px solid #f5c6cb;
 }
