@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
 @Injectable({
     providedIn: 'root'
 })
-export class AuthService {          //Voir ==> https://openclassrooms.com/fr/courses/7471271-completez-vos-connaissances-sur-angular/7549541-securisez-vos-requetes
-    domainName: string = "http://localhost:8000/api";
+export class AuthService {   
+    // prod       
+    domainName: string = "/api";
+    // dev : domainName: string = "http://localhost:8000/api";
+    // lan : domainName: string = "http://192.168.1.69:8000/api";
     private token = '';
     private idUser = -1;
 
