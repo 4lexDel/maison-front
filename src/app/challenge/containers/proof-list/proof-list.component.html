@@ -3,7 +3,6 @@
 <h1>Proofs</h1>
 <div class="main m-3">
     <div class="card list-card">
-        <div *ngIf="proofList$ | async else loading"></div>
         <div class="card" *ngFor="let proof of proofList$ | async" (click)="selectProof(proof)" [ngClass]="{'selected-proof':isProofSelected(proof)}">
             <div class="card-title flex-column justify-content-start align-items-center">
                 <h4 class="m-1">{{ proof.challengeTitle }}</h4>
@@ -12,6 +11,7 @@
             </div>
             <p class="p-2">From : {{ proof.challengerName }} ({{ proof.houseTitle }})</p>
         </div>
+        <div *ngIf="proofList$ | async else loading"></div>
     </div>
     <div class="card detail-proof">
         <div class="card-title" *ngIf="proofSelected; else noData">

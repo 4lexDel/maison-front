@@ -20,6 +20,8 @@
 .card {
     max-width: auto;
     width: auto;
+    max-height: auto;
+    height: auto;
 }
 
 .list-card {
@@ -29,6 +31,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     gap: 10px;
+    justify-content: flex-start;
 }
 
 .list-card .card {

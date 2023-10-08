@@ -37,6 +37,10 @@ h2 {
     margin: 3px;
 }
 
+p {
+    overflow-wrap: anywhere;
+}
+
 
 /* .challenges {
     overflow-x: auto;
