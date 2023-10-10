@@ -30,7 +30,7 @@
                 <h3>From : <span class="info-key">{{ proofSelected.challengerName }}</span></h3>
                 <h3>House : <span class="info-key pointer" [routerLink]="'/houses/'+proofSelected.idHouse">{{ proofSelected.houseTitle }}</span></h3>
             </div>
-            <img id="proof-img" [src]="domainName+'/proofs-img/'+proofSelected.proofImg" alt="">
+            <img id="proof-img" [src]="domainName+'/img/'+proofSelected.proofImg" alt="">
             <p class="p-2 description">Description : {{ proofSelected.description }}</p>
         </div>
         <div class="card-footer">

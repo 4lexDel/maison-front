@@ -22,11 +22,11 @@ export class HouseService {
     return this.http.get<House>(`${this.domainName}/houses/${id}`);
   }
 
-  addHouse(createdHouse: House): Observable<House>{
+  addHouse(createdHouse: any): Observable<House>{
     return this.http.post<House>(`${this.domainName}/houses/`, createdHouse);
   }
 
-  updateHouse(updatedHouse: House, houseId:number): Observable<House>{
+  updateHouse(updatedHouse: any, houseId:number): Observable<House>{
     return this.http.put<House>(`${this.domainName}/houses/${houseId}`, updatedHouse);
   }
 

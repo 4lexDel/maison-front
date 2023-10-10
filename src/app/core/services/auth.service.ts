@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 })
 export class AuthService {   
     // prod       
-    domainName: string = "/api";
-    // dev : domainName: string = "http://localhost:8000/api";
+    //domainName: string = "/api";
+    //dev : 
+    domainName: string = "http://localhost:8000/api";
     // lan : domainName: string = "http://192.168.1.69:8000/api";
     private token = '';
     private idUser = -1;

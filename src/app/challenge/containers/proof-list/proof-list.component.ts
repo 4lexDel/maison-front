@@ -16,12 +16,12 @@ export class ProofListComponent {
   proofSelected!:ProofDetail | null;
   domainName!:string;
 
-  constructor(private proofService: ProofService, authService: AuthService) { 
-    this.domainName = authService.getDomainName();
+  constructor(private proofService: ProofService, private authService: AuthService) { 
   }
-
+  
   ngOnInit(): void {
     this.refreshProofList();
+    this.domainName = this.authService.getDomainName();
   }
 
   async refreshProofList(): Promise<void> {

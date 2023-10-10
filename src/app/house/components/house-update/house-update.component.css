@@ -1,3 +1,36 @@
 .card {
     max-width: 800px;
 }
+
+.image-container {
+    margin: 5px;
+    display: flex;
+    justify-content: start;
+    /* flex-wrap: wrap; */
+    /* gap: 10px; */
+    overflow: hidden;
+    max-height: 300px;
+    /* border: 1px solid var(--grey); */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="file"] {
+    color: transparent;
+    display: none;
+}
+
+.custom-file-upload {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px dashed;
+    border-color: var(--soft-white);
+    text-align: center;
+    width: max-content;
+}

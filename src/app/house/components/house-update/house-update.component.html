@@ -8,6 +8,17 @@
 
         <form [formGroup]="updateHouseForm">
             <div class="form-group card-content P-3">
+                <div class="flex-column">
+                    <label for="imageInput" class="custom-file-upload">Select an image</label>
+
+                    <input type="file" id="imageInput" (change)="onFileSelected($event)" accept="image/*" title="&nbsp;" formControlName="houseImg">
+                    <!--multiple-->
+                    <div class="image-container">
+                        <img *ngFor="let image of selectedImages" [src]="image" alt="Selected Image">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group card-content P-3">
                 <label for="houseName">House</label>
                 <input type="text" id="houseName" formControlName="title" maxlength="50">
             </div>

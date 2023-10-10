@@ -4,6 +4,7 @@ import { House } from 'src/app/core/models/house.model';
 import { HouseService } from '../../services/house.service';
 import { Router } from '@angular/router';
 import { ConfirmationPopupComponent } from 'src/app/shared/components/confirmation-popup/confirmation-popup.component';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 
 @Component({
@@ -19,10 +20,13 @@ export class HouseListComponent implements OnInit {
   @ViewChild('confirmationPopup') confirmationPopup!: ConfirmationPopupComponent;
   houseToDelete!:number;
 
-  constructor(private houseService: HouseService, private router: Router) { }
+  domainName!: string;
+
+  constructor(private houseService: HouseService, private authService:AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.refreshHouseList();
+    this.domainName = this.authService.getDomainName();
   }
 
   addHouse(): void {

@@ -2,12 +2,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChallengeService } from '../../services/challenge.service';
-import { Observable, lastValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HouseService } from 'src/app/house/services/house.service';
 import { ProofService } from '../../services/proof.service';
 import { Challenge } from 'src/app/core/models/challenge.model';
 import { House } from 'src/app/core/models/house.model';
-import { HttpHeaders } from '@angular/common/http';
 import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 
 @Component({
@@ -27,16 +26,13 @@ export class ProofAddingComponent implements OnInit {
 
   houseList$!: Observable<House[]>;
 
-  imageBlobs: Blob[] = [];
-
   selectedImages: string[] = [];
-  maxHeight: number = 300; // Définissez la hauteur maximale souhaitée en pixels
 
   files!: FileList;
 
   onFileSelected(event: any) {
     this.files = event.target.files;
-    const maxFileSize = 8 * 1024 * 1024; // 8 Mo en octets
+    const maxFileSize = 5 * 1024 * 1024; // 8 Mo en octets
     let totalFileSize = 0;
 
     if (this.files && this.files.length > 0) {
@@ -51,8 +47,6 @@ export class ProofAddingComponent implements OnInit {
 
           // Vérifiez si la somme des tailles est inférieure ou égale à la limite
           if (totalFileSize <= maxFileSize) {
-            const blob = new Blob([file], { type: file.type });
-            this.imageBlobs.push(blob); // Ajoutez le Blob du fichier à la liste des imageBlobs
             const reader = new FileReader();
 
             reader.onload = (e: any) => {
@@ -108,11 +102,8 @@ export class ProofAddingComponent implements OnInit {
         idChallenge: this.challengeId
       }
 
-      console.log(newProof);
-
       const formData = new FormData();
 
-      // Ajoutez les valeurs du formulaire à l'objet FormData
       Object.keys(newProof).forEach(key => {
         formData.append(key, newProof[key]);
       });
